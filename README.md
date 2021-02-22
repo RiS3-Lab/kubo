@@ -48,6 +48,18 @@ Kernel
 
 4. see ./work/bugs for the bug reports
 
+
+Credit:
+----
+This work is built on other amazing works
+specifically
+
+- For call graph analysis: https://github.com/lzto/pex
+- For slicing and symbolic execution: https://github.com/sslab-gatech/deadline/
+- For taint analysis: https://github.com/ucsb-seclab/dr_checker
+
+Shout out to their amazong contributions that made this possible.
+
 Q & A
 ----
 Should you have any question, feel free to raise an issue in this repo or directly contact the author at liu.changm@northeastern.edu.
