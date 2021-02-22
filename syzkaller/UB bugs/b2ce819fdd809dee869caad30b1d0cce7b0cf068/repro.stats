@@ -1,0 +1,284 @@
+Extracting prog: 1m23.235803706s
+Minimizing prog: 20m53.261171591s
+Simplifying prog options: 0s
+Extracting C: 1m21.946200378s
+Simplifying C: 8m4.779847222s
+
+
+2226 programs, 1 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 2226 programs
+single: executing 1 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT-syz_open_dev$radio-openat$vimc2-ioctl$VIDIOC_G_EDID-syz_open_dev$vivid-ioctl$VIDIOC_SUBDEV_ENUM_DV_TIMINGS
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+syz_open_dev$radio(&(0x7f0000000340)='/dev/radio#\x00', 0x2, 0x2)
+r3 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_EDID(r3, 0xc0285628, &(0x7f0000000200)={0x0, 0x80, 0x8000, [], &(0x7f00000001c0)=0x20})
+r4 = syz_open_dev$vivid(&(0x7f0000000380)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_SUBDEV_ENUM_DV_TIMINGS(r4, 0xc0945662, &(0x7f00000003c0)={0x3ff, 0x0, [], {0x0, @bt={0x4, 0x80000001, 0x0, 0x2, 0x5, 0x3ff, 0x6, 0x20, 0x0, 0x8000, 0x401, 0x739a, 0x9, 0x2, 0x1d, 0x2, {0x1, 0x7}, 0x20, 0x8}}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+single: successfully extracted reproducer
+found reproducer with 13 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT-syz_open_dev$radio-openat$vimc2-ioctl$VIDIOC_G_EDID-syz_open_dev$vivid
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+syz_open_dev$radio(&(0x7f0000000340)='/dev/radio#\x00', 0x2, 0x2)
+r3 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_EDID(r3, 0xc0285628, &(0x7f0000000200)={0x0, 0x80, 0x8000, [], &(0x7f00000001c0)=0x20})
+syz_open_dev$vivid(&(0x7f0000000380)='/dev/video#\x00', 0x0, 0x2)
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT-syz_open_dev$radio-openat$vimc2-ioctl$VIDIOC_G_EDID
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+syz_open_dev$radio(&(0x7f0000000340)='/dev/radio#\x00', 0x2, 0x2)
+r3 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_EDID(r3, 0xc0285628, &(0x7f0000000200)={0x0, 0x80, 0x8000, [], &(0x7f00000001c0)=0x20})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT-syz_open_dev$radio-openat$vimc2
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+syz_open_dev$radio(&(0x7f0000000340)='/dev/radio#\x00', 0x2, 0x2)
+openat$vimc2(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video2\x00', 0x2, 0x0)
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT-syz_open_dev$radio
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+syz_open_dev$radio(&(0x7f0000000340)='/dev/radio#\x00', 0x2, 0x2)
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT-ioctl$VIDIOC_SUBSCRIBE_EVENT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+ioctl$VIDIOC_SUBSCRIBE_EVENT(r2, 0x4020565a, &(0x7f0000000080)={0x5})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-syz_open_dev$vivid
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-ioctl$VIDIOC_G_EXT_CTRLS-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+ioctl$VIDIOC_G_EXT_CTRLS(0xffffffffffffffff, 0xc0205647, &(0x7f0000000280)={0xa00000, 0x10001, 0x3, r0, 0x0, &(0x7f0000000240)={0x990afb, 0x400, [], @ptr}})
+ioctl$VIDIOC_S_FMT(0xffffffffffffffff, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-ioctl$VIDIOC_ENCODER_CMD-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENCODER_CMD(r1, 0xc028564d, &(0x7f0000000300)={0x2, 0x0, [0xffff78b8, 0x1, 0x7fffffff, 0x20, 0x7f, 0xbac5, 0x2, 0x1ff]})
+r2 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r2, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-openat$vicodec1-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+openat$vicodec1(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/video37\x00', 0x2, 0x0)
+r1 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r1, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-ioctl$VIDIOC_STREAMON-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000680))
+r1 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r1, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$vimc2-syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+r0 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$vivid(0x0, 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+detailed listing:
+executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, 0x0)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): syz_open_dev$vivid-ioctl$VIDIOC_S_FMT
+program crashed: UBSAN: undefined-behaviour in __v4l2_find_nearest_size
+reproducing took 31m43.223055267s
+repro crashed as (corrupted=false):
+================================================================================
+UBSAN: Undefined behaviour in drivers/media/v4l2-core/v4l2-common.c:173:37
+signed integer overflow:
+1727 + 2147483469 cannot be represented in type 'int'
+CPU: 0 PID: 9938 Comm: syz-executor686 Not tainted 5.4.0+ #27
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+Call Trace:
+ dump_stack+0xc6/0x11e
+ ubsan_epilogue+0xe/0x40
+ handle_overflow+0xdf/0xf0
+ __v4l2_find_nearest_size+0x187/0x1e0
+ vivid_try_fmt_vid_cap+0x965/0x2120
+ vivid_s_fmt_vid_cap+0x5d/0x2df0
+ vidioc_s_fmt_vid_cap_mplane+0x9c/0xf0
+ v4l_s_fmt+0x2c6/0xa60
+ __video_do_ioctl+0x760/0xeb0
+ video_usercopy+0x118/0xf80
+ v4l2_ioctl+0x1c0/0x270
+ do_vfs_ioctl+0x19d/0x10d0
+ ksys_ioctl+0x84/0x90
+ __x64_sys_ioctl+0x6f/0xb0
+ do_syscall_64+0x9d/0x5a0
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x443f59
+Code: 18 89 d0 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 fb d7 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007fff12f84b68 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00000000004002e0 RCX: 0000000000443f59
+RDX: 00000000200000c0 RSI: 00000000c0d05605 RDI: 0000000000000003
+RBP: 00000000006ce018 R08: 0000000000000000 R09: 00000000004002e0
+R10: 000000000000000f R11: 0000000000000246 R12: 0000000000401be0
+R13: 0000000000401c70 R14: 0000000000000000 R15: 0000000000000000
+================================================================================
+
+final repro crashed as (corrupted=false):
+================================================================================
+UBSAN: Undefined behaviour in drivers/media/v4l2-core/v4l2-common.c:173:37
+signed integer overflow:
+1727 + 2147483469 cannot be represented in type 'int'
+CPU: 0 PID: 9938 Comm: syz-executor686 Not tainted 5.4.0+ #27
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+Call Trace:
+ dump_stack+0xc6/0x11e
+ ubsan_epilogue+0xe/0x40
+ handle_overflow+0xdf/0xf0
+ __v4l2_find_nearest_size+0x187/0x1e0
+ vivid_try_fmt_vid_cap+0x965/0x2120
+ vivid_s_fmt_vid_cap+0x5d/0x2df0
+ vidioc_s_fmt_vid_cap_mplane+0x9c/0xf0
+ v4l_s_fmt+0x2c6/0xa60
+ __video_do_ioctl+0x760/0xeb0
+ video_usercopy+0x118/0xf80
+ v4l2_ioctl+0x1c0/0x270
+ do_vfs_ioctl+0x19d/0x10d0
+ ksys_ioctl+0x84/0x90
+ __x64_sys_ioctl+0x6f/0xb0
+ do_syscall_64+0x9d/0x5a0
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x443f59
+Code: 18 89 d0 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 fb d7 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007fff12f84b68 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 00000000004002e0 RCX: 0000000000443f59
+RDX: 00000000200000c0 RSI: 00000000c0d05605 RDI: 0000000000000003
+RBP: 00000000006ce018 R08: 0000000000000000 R09: 00000000004002e0
+R10: 000000000000000f R11: 0000000000000246 R12: 0000000000401be0
+R13: 0000000000401c70 R14: 0000000000000000 R15: 0000000000000000
+================================================================================
+

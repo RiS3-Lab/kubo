@@ -1,0 +1,10 @@
+/build/
+/.idea/
+/bugs/
+KSym/CMakeFiles/
+cmake-build-profile/
+cmake-build-debug/
+!compile_commands.json
+adhoc-exe.py
+/pre_bugs/
+*.bc

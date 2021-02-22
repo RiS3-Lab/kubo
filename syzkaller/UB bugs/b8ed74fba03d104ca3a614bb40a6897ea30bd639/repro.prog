@@ -1,0 +1,10 @@
+# {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:false Repro:false Trace:false}
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)

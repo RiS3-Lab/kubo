@@ -1,0 +1,236 @@
+Warning: Permanently added '[localhost]:54882' (ECDSA) to the list of known hosts.
+Argument "" isn't numeric in numeric eq (==) at /usr/bin/rxe_cfg line 141.
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+IB device 'rxe0' wasn't found
+2020/11/19 16:44:55 fuzzer started
+[   64.629245][ T9950] ld (9950) used greatest stack depth: 24128 bytes left
+2020/11/19 16:44:58 dialing manager at 10.0.2.10:35850
+2020/11/19 16:44:58 syscalls: 106
+2020/11/19 16:44:58 code coverage: enabled
+2020/11/19 16:44:58 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/11/19 16:44:58 extra coverage: extra coverage is not supported by the kernel
+2020/11/19 16:44:58 setuid sandbox: enabled
+2020/11/19 16:44:58 namespace sandbox: enabled
+2020/11/19 16:44:58 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/11/19 16:44:58 fault injection: enabled
+2020/11/19 16:44:58 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/11/19 16:44:58 net packet injection: enabled
+2020/11/19 16:44:58 net device setup: enabled
+2020/11/19 16:44:58 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/11/19 16:44:58 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/11/19 16:44:58 USB emulation: /dev/raw-gadget does not exist
+2020/11/19 16:44:58 hci packet injection: enabled
+2020/11/19 16:44:58 wifi device emulation: enabled
+16:45:01 executing program 0:
+ioctl$VIDIOC_S_FMT(0xffffffffffffffff, 0xc0d05605, &(0x7f0000000000)={0x6, @sdr={0x56544943, 0x6}})
+r0 = syz_open_dev$swradio(&(0x7f0000000100)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_OUTPUT(r0, 0xc004562f, &(0x7f0000000140))
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000180)={0x1, @sdr={0x3247504d, 0x1000}})
+ioctl$VIDIOC_UNSUBSCRIBE_EVENT(0xffffffffffffffff, 0x4020565b, &(0x7f0000000280)={0x0, 0x0, 0x2})
+ioctl$VIDIOC_S_OUTPUT(r0, 0xc004562f, &(0x7f00000002c0)=0x800)
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000300)=0x1)
+r1 = syz_open_dev$vivid(&(0x7f0000000340)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_TUNER(r1, 0x4054561e, &(0x7f0000000380)={0x20, "933c7224255f71a811b4723bc17b8265d6645a6cb780e3ee1bfd4ea160f17a90", 0x3, 0x80, 0x7, 0x1, 0x4, 0x2, 0x1, 0x6})
+ioctl$VIDIOC_ENUMOUTPUT(r0, 0xc0485630, &(0x7f0000000400)={0xfffffffb, "17f1be9034fbb2dadf4dbcaf6e6cc30f8aad4273a19b82edcc099d48f0a9a4a2", 0x1, 0x1f, 0x81, 0x400000, 0x2})
+ioctl$VIDIOC_G_EXT_CTRLS(r1, 0xc0205647, &(0x7f00000004c0)={0x0, 0x9, 0x3ff, r0, 0x0, &(0x7f0000000480)={0x990907, 0x1, [], @ptr=0x2}})
+r2 = openat$vimc1(0xffffffffffffff9c, &(0x7f0000000500)='/dev/video1\x00', 0x2, 0x0)
+ioctl$VIDIOC_CREATE_BUFS(r2, 0xc100565c, &(0x7f0000000540)={0x9, 0x1a1, 0x2, {0x6, @sliced={0xd7d8, [0x1, 0x4fe, 0x9b40, 0x80, 0x2, 0x3, 0x6, 0x4, 0x8, 0x8, 0x9, 0xffff, 0x7b, 0x8, 0x5, 0x101, 0x2, 0x9, 0x2, 0x9, 0xfffc, 0x80, 0x4, 0x6, 0x0, 0x5, 0x1000, 0x200, 0x0, 0x0, 0x8001, 0x8000, 0x9aff, 0x2, 0x0, 0x1ff, 0x7, 0x0, 0x200, 0x7, 0x5, 0xffff, 0x2, 0x8, 0x3, 0xffff, 0x5, 0xfad], 0x80000000}}, 0x7})
+ioctl$VIDIOC_S_STD(r0, 0x40085618, &(0x7f0000000640)=0x10003)
+ioctl$VIDIOC_S_FREQUENCY(r1, 0x402c5639, &(0x7f0000000680)={0x7090, 0x3, 0x8})
+ioctl$VIDIOC_ENUM_FMT(r1, 0xc0405602, &(0x7f00000006c0)={0x8, 0xd71167faf5cbefa2, 0x2, "18c8b9e8a31d4165aa34bf0de132e45fb84a155090b0f77988a4240098d11bae", 0x31303453})
+r3 = syz_open_dev$vivid(&(0x7f0000000700)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_HW_FREQ_SEEK(r3, 0x40305652, &(0x7f0000000740)={0xff, 0x4, 0x8, 0x4, 0x200, 0x4, 0x1ff})
+r4 = openat$vimc1(0xffffffffffffff9c, &(0x7f0000000780)='/dev/video1\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_CTRL(r4, 0xc008561c, &(0x7f00000007c0)={0x6, 0x380})
+
+[   70.287740][ T9962] IPVS: ftp: loaded support on port[0] = 21
+[   70.441525][ T9962] chnl_net:caif_netlink_parms(): no params data found
+[   70.478991][ T9962] bridge0: port 1(bridge_slave_0) entered blocking state
+[   70.481425][ T9962] bridge0: port 1(bridge_slave_0) entered disabled state
+[   70.484479][ T9962] device bridge_slave_0 entered promiscuous mode
+[   70.489113][ T9962] bridge0: port 2(bridge_slave_1) entered blocking state
+[   70.491385][ T9962] bridge0: port 2(bridge_slave_1) entered disabled state
+[   70.494041][ T9962] device bridge_slave_1 entered promiscuous mode
+[   70.506472][ T9962] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   70.510238][ T9962] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   70.521549][ T9962] team0: Port device team_slave_0 added
+[   70.524520][ T9962] team0: Port device team_slave_1 added
+[   70.535064][ T9962] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   70.538673][ T9962] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.548045][ T9962] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   70.552214][ T9962] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   70.554484][ T9962] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   70.564103][ T9962] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   70.578403][ T9962] device hsr_slave_0 entered promiscuous mode
+[   70.580937][ T9962] device hsr_slave_1 entered promiscuous mode
+[   70.711229][ T9962] bridge0: port 2(bridge_slave_1) entered blocking state
+[   70.714571][ T9962] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   70.717089][ T9962] bridge0: port 1(bridge_slave_0) entered blocking state
+[   70.719363][ T9962] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   70.914923][ T9962] 8021q: adding VLAN 0 to HW filter on device bond0
+[   70.920951][ T9671] IPv6: ADDRCONF(NETDEV_CHANGE): veth0: link becomes ready
+[   70.923812][ T9671] bridge0: port 1(bridge_slave_0) entered disabled state
+[   70.956995][ T9671] bridge0: port 2(bridge_slave_1) entered disabled state
+[   70.960759][ T9671] IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
+[   70.965212][ T9962] 8021q: adding VLAN 0 to HW filter on device team0
+[   70.971721][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_0: link becomes ready
+[   70.974545][    T7] bridge0: port 1(bridge_slave_0) entered blocking state
+[   70.976943][    T7] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   70.986923][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_1: link becomes ready
+[   70.989716][    T5] bridge0: port 2(bridge_slave_1) entered blocking state
+[   70.991966][    T5] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   70.994776][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_0: link becomes ready
+[   71.004475][ T9962] hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+[   71.008912][ T9962] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   71.013600][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): team0: link becomes ready
+[   71.018724][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_1: link becomes ready
+[   71.021751][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_0: link becomes ready
+[   71.024798][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_1: link becomes ready
+[   71.034994][ T9962] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   71.039546][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan0: link becomes ready
+[   71.042076][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan1: link becomes ready
+[   71.044473][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): hsr0: link becomes ready
+[   71.076645][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_virt_wifi: link becomes ready
+[   71.084747][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_vlan: link becomes ready
+[   71.089276][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vlan0: link becomes ready
+[   71.092301][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vlan1: link becomes ready
+[   71.096278][ T9962] device veth0_vlan entered promiscuous mode
+[   71.100457][ T9962] device veth1_vlan entered promiscuous mode
+[   71.107474][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan0: link becomes ready
+[   71.110526][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan1: link becomes ready
+[   71.118351][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_macvtap: link becomes ready
+[   71.122503][ T9962] device veth0_macvtap entered promiscuous mode
+[   71.127653][ T9962] device veth1_macvtap entered promiscuous mode
+[   71.134888][ T9962] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   71.138934][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_to_batadv: link becomes ready
+[   71.142555][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): macvtap0: link becomes ready
+[   71.147529][ T9962] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   71.153449][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth1_to_batadv: link becomes ready
+[   71.237319][ T9962] ieee80211 phy3: Selected rate control algorithm 'minstrel_ht'
+[   71.257435][ T4034] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   71.260046][ T4034] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   71.262823][ T9671] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   71.274012][ T9962] ieee80211 phy4: Selected rate control algorithm 'minstrel_ht'
+[   71.293802][  T115] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   71.298156][  T115] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   71.302958][ T9671] IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+16:45:04 executing program 0:
+r0 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+r1 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000001680)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_OUTPUT(r1, 0x8004562e, &(0x7f0000000100))
+ioctl$VIDIOC_TRY_ENCODER_CMD(r1, 0xc028564e, &(0x7f0000000140)={0x2, 0x0, [0x8, 0x4, 0x10001, 0x45d3, 0x8, 0x4, 0x8, 0xfffffff7]})
+syz_open_dev$swradio(0x0, 0x0, 0x2)
+r2 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000300)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_QUERY_EXT_CTRL(r2, 0xc0e85667, &(0x7f0000000340)={0x0, 0x0, "8d846c5226a3a7f00f919443e58368e240d3c5d6ca1f232a2516b64cd2783d91", 0x3, 0x20, 0x81, 0xf6, 0xffffffff, 0x1, 0xffff455d, 0xfffffffc, [0xfff, 0x80000001, 0x40, 0x3]})
+ioctl$VIDIOC_ENUMAUDIO(r2, 0xc0345641, &(0x7f0000000440)={0x3, "59e62cf941008a248b45cb0abac790ee9e10d156fa843ea9a0ae62a35056c0b5"})
+ioctl$VIDIOC_QUERYSTD(r2, 0x8008563f, &(0x7f0000000600))
+ioctl$VIDIOC_EXPBUF(r2, 0xc0405610, &(0x7f0000000280)={0x6, 0xffffffff, 0x1})
+ioctl$VIDIOC_S_FBUF(0xffffffffffffffff, 0x4030560b, &(0x7f0000000000)={0x8, 0x6f, &(0x7f0000000180)="af9820102242da0b361cc8c5433e2c66cedde4d16031d9a149fcad318d2ff9ce5a74ae88cc405e148f6c9880bec8c02905329df4474ec7fc663ac176fd418c0e239250bce124b8a2092d1f745689171a67ccb7c8bdb49a9ae9250c906b015626e62d254e2d168f0514efef5db07ebff67c9efd1a2f54d8663b72b3cde19822b6e887ebd0138ddf5370271ff19c8c5d194a4980890d7d2848d08f560488ed0178ce98e8c4854a2b4121e9efbcd75f7f870b0d396c440549ef5774256c48b5851629b209793b116c3d440a79492a9232c231dc33c601a95bc5b00e3b563621e724c3a7c3a0908a66826249", {0x40, 0x2, 0x31303453, 0x7, 0x3, 0x2, 0x5, 0x6}})
+
+16:45:04 executing program 0:
+openat$vimc2(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video2\x00', 0x2, 0x0)
+r0 = syz_open_dev$vivid(&(0x7f0000000180)='/dev/video#\x00', 0x1, 0x2)
+ioctl$VIDIOC_S_CROP(r0, 0x4014563c, &(0x7f00000001c0)={0x2, {0x0, 0x0, 0xffffffff}})
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000040)=0x800)
+
+16:45:04 executing program 0:
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/video37\x00', 0x2, 0x0)
+r1 = syz_open_dev$radio(&(0x7f0000000000)='/dev/radio#\x00', 0x3, 0x2)
+ioctl$VIDIOC_S_EXT_CTRLS(r1, 0xc0205648, &(0x7f0000000100)={0xf000000, 0x6, 0x80000001, r0, 0x0, &(0x7f0000000080)={0x980922, 0x81, [], @p_u32=&(0x7f0000000040)=0x2}})
+
+16:45:04 executing program 0:
+r0 = openat$vimc0(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_QUERYCAP(r0, 0x80685600, &(0x7f0000000240))
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000140)={0x6, 0x8001, 0x1, {0x1, @sliced={0x400, [0x0, 0x0, 0x0, 0x0, 0x0, 0x8000, 0x0, 0x0, 0x0, 0x0, 0x12, 0x0, 0xff, 0x0, 0x0, 0x0, 0x20, 0x6, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x80, 0x0, 0x0, 0x0, 0x1f, 0x0, 0x0, 0x100, 0x800, 0x28d4, 0x0, 0x6c30, 0x0, 0x9, 0x0, 0x0, 0x0, 0x0, 0x9]}}})
+r1 = openat$vimc0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_AUDOUT(r1, 0x40345632, &(0x7f0000000040)={0x80, "de4ecb3f2263eda87d406adb070e4be9a8b9f4864be61545d51eee63121b1656", 0x1, 0x1})
+r2 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_SUBDEV_ENUM_FRAME_INTERVAL(r2, 0xc040564b, &(0x7f0000000100)={0xffff261f, 0x0, 0x1011, 0x1, 0x8, {0x2, 0x2}, 0x1})
+
+16:45:04 executing program 0:
+ioctl$VIDIOC_S_PRIORITY(0xffffffffffffffff, 0x40045644, 0x3)
+r0 = syz_open_dev$vivid(&(0x7f0000000000)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000240)={0x0, 0x1, 0x4, {0x1, @vbi={0x0, 0x0, 0x0, 0x0, [0x0, 0x7fffffff]}}})
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000040)={0x1, @raw_data="12946665d05b188b620fecd9a19647e85a9b4d3c5daaabe5b17f10de0ab53e1e462b0eed8dc0034c628512e0c38dbd7c8edd097f1edff02cae3293076154f0f3d68fc7c34432c0aabbe0dc636038fb28311b26d320f0d166b5b1462f73bf18cd66d9b5b37bc4ff1c688a5815eb41b19824ada7d23954677cb811fefdf9771c8644bc31a7c778bef26e9f2501c124515f77c45b2d42ad0c7cf5e6fa9acced1d07fc8374d8a638f830728dee8ac589190f3ab7a4f457f1c5ed86a42e03990deda576cf345f243586b7"})
+
+[   71.632171][T10270] ================================================================================
+[   71.635198][T10270] UBSAN: Undefined behaviour in drivers/media/v4l2-core/v4l2-common.c:173:37
+[   71.638009][T10270] signed integer overflow:
+[   71.639603][T10270] 1701221074 + 1961338084 cannot be represented in type 'int'
+[   71.642124][T10270] CPU: 0 PID: 10270 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+[   71.644640][T10270] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+[   71.648130][T10270] Call Trace:
+[   71.649292][T10270]  dump_stack+0xc6/0x11e
+[   71.650731][T10270]  ubsan_epilogue+0xe/0x40
+[   71.652200][T10270]  handle_overflow+0xdf/0xf0
+[   71.653729][T10270]  ? deref_stack_reg+0xa8/0xe0
+[   71.655310][T10270]  __v4l2_find_nearest_size+0x187/0x1e0
+[   71.657185][T10270]  vivid_try_fmt_vid_cap+0x965/0x2120
+[   71.658938][T10270]  ? trace_raw_output_mem_disconnect+0x250/0x2b0
+[   71.661057][T10270]  ? mark_held_locks+0x100/0x100
+[   71.662731][T10270]  ? kernel_text_address+0xcd/0xe0
+[   71.664430][T10270]  vivid_s_fmt_vid_cap+0x5d/0x2df0
+[   71.666155][T10270]  ? v4l_enable_media_source+0x4a/0xd0
+[   71.667965][T10270]  ? memset+0x1f/0x40
+[   71.669290][T10270]  ? vivid_update_format_cap+0x2050/0x2050
+[   71.671265][T10270]  fmt_sp2mp_func+0x90/0x410
+[   71.672765][T10270]  ? fmt_sp2mp+0x770/0x770
+[   71.674235][T10270]  ? __video_do_ioctl+0x42f/0xeb0
+[   71.675770][T10270]  ? __mutex_unlock_slowpath+0xdc/0x690
+[   71.677573][T10270]  ? security_file_ioctl+0x52/0xa0
+[   71.679200][T10270]  ? ksys_ioctl+0x3f/0x90
+[   71.680735][T10270]  vidioc_s_fmt_vid_cap+0xa3/0xf0
+[   71.682386][T10270]  v4l_s_fmt+0x32b/0xa60
+[   71.683761][T10270]  __video_do_ioctl+0x760/0xeb0
+[   71.685396][T10270]  ? v4l_s_fmt+0xa60/0xa60
+[   71.686854][T10270]  ? __might_fault+0x177/0x1b0
+[   71.688320][T10270]  video_usercopy+0x118/0xf80
+[   71.689893][T10270]  ? v4l_s_fmt+0xa60/0xa60
+[   71.691401][T10270]  ? putname+0xd0/0x120
+[   71.692892][T10270]  ? v4l_enumstd+0x60/0x60
+[   71.694402][T10270]  ? __kasan_slab_free+0x11d/0x160
+[   71.696221][T10270]  ? tomoyo_execute_permission+0x4e0/0x4e0
+[   71.698273][T10270]  v4l2_ioctl+0x1c0/0x270
+[   71.699856][T10270]  ? v4l2_prio_init+0x20/0x20
+[   71.701445][T10270]  do_vfs_ioctl+0x19d/0x10d0
+[   71.703053][T10270]  ? ioctl_preallocate+0x1f0/0x1f0
+[   71.704860][T10270]  ? __fget+0x344/0x540
+[   71.706348][T10270]  ? do_dup2+0x4f0/0x4f0
+[   71.707844][T10270]  ? ktime_get_ts64+0x1e0/0x2f0
+[   71.709526][T10270]  ksys_ioctl+0x84/0x90
+[   71.710993][T10270]  __x64_sys_ioctl+0x6f/0xb0
+[   71.712599][T10270]  do_syscall_64+0x9d/0x5a0
+[   71.714211][T10270]  entry_SYSCALL_64_after_hwframe+0x49/0xbe
+[   71.716299][T10270] RIP: 0033:0x45de59
+[   71.717710][T10270] Code: 0d b4 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 db b3 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+[   71.724586][T10270] RSP: 002b:00007f56ba995c78 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[   71.727515][T10270] RAX: ffffffffffffffda RBX: 000000000001cfc0 RCX: 000000000045de59
+[   71.730340][T10270] RDX: 0000000020000040 RSI: 00000000c0d05605 RDI: 0000000000000003
+[   71.733143][T10270] RBP: 000000000118bf60 R08: 0000000000000000 R09: 0000000000000000
+[   71.735968][T10270] R10: 0000000000000000 R11: 0000000000000246 R12: 000000000118bf2c
+[   71.738773][T10270] R13: 00007ffd6650428f R14: 00007f56ba9969c0 R15: 000000000118bf2c
+[   71.741571][T10270] ================================================================================
+[   72.383584][   T16] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[   72.386489][   T16] batman_adv: batadv0: Removing interface: batadv_slave_0
+[   72.389398][   T16] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[   72.391892][   T16] batman_adv: batadv0: Removing interface: batadv_slave_1
+[   72.394757][   T16] device bridge_slave_1 left promiscuous mode
+[   72.398639][   T16] bridge0: port 2(bridge_slave_1) entered disabled state
+[   72.401627][   T16] device bridge_slave_0 left promiscuous mode
+[   72.403755][   T16] bridge0: port 1(bridge_slave_0) entered disabled state
+[   72.408789][   T16] device veth1_macvtap left promiscuous mode
+[   72.410843][   T16] device veth0_macvtap left promiscuous mode
+[   72.412958][   T16] device veth1_vlan left promiscuous mode
+[   72.414948][   T16] device veth0_vlan left promiscuous mode
+[   72.706183][   T16] device hsr_slave_0 left promiscuous mode
+[   72.722737][   T16] device hsr_slave_1 left promiscuous mode
+[   72.734123][   T16] team0 (unregistering): Port device team_slave_1 removed
+[   72.738399][   T16] team0 (unregistering): Port device team_slave_0 removed
+[   72.742316][   T16] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[   72.747831][   T16] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[   72.762927][   T16] bond0 (unregistering): Released all slaves

@@ -1,0 +1,3 @@
+[submodule "syzkaller/syzkaller"]
+	path = syzkaller/syzkaller
+	url = https://github.com/google/syzkaller

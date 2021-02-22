@@ -1,0 +1,36 @@
+================================================================================
+UBSAN: Undefined behaviour in drivers/media/v4l2-core/v4l2-common.c:173:37
+signed integer overflow:
+742235795 + 1429582464 cannot be represented in type 'int'
+CPU: 0 PID: 10705 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+Call Trace:
+ __dump_stack home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/lib/dump_stack.c:77 [inline]
+ dump_stack+0xc6/0x11e home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/lib/dump_stack.c:118
+ ubsan_epilogue+0xe/0x40 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/lib/ubsan.c:158
+ handle_overflow+0xdf/0xf0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/lib/ubsan.c:189
+ __v4l2_find_nearest_size+0x187/0x1e0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/v4l2-core/v4l2-common.c:173
+ vivid_try_fmt_vid_cap+0x965/0x2120 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/platform/vivid/vivid-vid-cap.c:578
+ vivid_s_fmt_vid_cap+0x5d/0x2df0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/platform/vivid/vivid-vid-cap.c:658
+ vidioc_s_fmt_vid_cap_mplane+0x9c/0xf0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/platform/vivid/vivid-vid-cap.c:805
+ v4l_s_fmt+0x2c6/0xa60 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/v4l2-core/v4l2-ioctl.c:1596
+ __video_do_ioctl+0x760/0xeb0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/v4l2-core/v4l2-ioctl.c:2910
+ video_usercopy+0x118/0xf80 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/v4l2-core/v4l2-ioctl.c:3092
+ v4l2_ioctl+0x1c0/0x270 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/drivers/media/v4l2-core/v4l2-dev.c:360
+ vfs_ioctl home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:46 [inline]
+ do_vfs_ioctl+0x19d/0x10d0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:698
+ ksys_ioctl+0x84/0x90 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:716
+ __do_sys_ioctl home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:723 [inline]
+ __se_sys_ioctl home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:721 [inline]
+ __x64_sys_ioctl+0x6f/0xb0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/fs/ioctl.c:721
+ do_syscall_64+0x9d/0x5a0 home/changming/newLinux/symslice/syzkaller/linux_src/linux-stable-5.4/arch/x86/entry/common.c:290
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x45de59
+Code: 0d b4 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 db b3 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007f13c3d2dc78 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+RAX: ffffffffffffffda RBX: 000000000001cfc0 RCX: 000000000045de59
+RDX: 0000000020000140 RSI: 00000000c0d05605 RDI: 0000000000000003
+RBP: 000000000118bf60 R08: 0000000000000000 R09: 0000000000000000
+R10: 0000000000000000 R11: 0000000000000246 R12: 000000000118bf2c
+R13: 00007ffc45f5732f R14: 00007f13c3d2e9c0 R15: 000000000118bf2c
+================================================================================

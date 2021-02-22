@@ -1,0 +1,341 @@
+Warning: Permanently added '[localhost]:11921' (ECDSA) to the list of known hosts.
+Argument "" isn't numeric in numeric eq (==) at /usr/bin/rxe_cfg line 141.
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+IB device 'rxe0' wasn't found
+2020/11/17 20:47:56 fuzzer started
+2020/11/17 20:47:58 dialing manager at 10.0.2.10:43964
+2020/11/17 20:47:58 syscalls: 3449
+2020/11/17 20:47:58 code coverage: enabled
+2020/11/17 20:47:58 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/11/17 20:47:58 extra coverage: extra coverage is not supported by the kernel
+2020/11/17 20:47:58 setuid sandbox: enabled
+2020/11/17 20:47:58 namespace sandbox: enabled
+2020/11/17 20:47:58 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/11/17 20:47:58 fault injection: enabled
+2020/11/17 20:47:58 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/11/17 20:47:58 net packet injection: enabled
+2020/11/17 20:47:58 net device setup: enabled
+2020/11/17 20:47:58 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/11/17 20:47:58 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/11/17 20:47:58 USB emulation: /dev/raw-gadget does not exist
+2020/11/17 20:47:58 hci packet injection: enabled
+2020/11/17 20:47:58 wifi device emulation: enabled
+20:48:13 executing program 0:
+syz_mount_image$reiserfs(&(0x7f0000000000)='reiserfs\x00', &(0x7f0000000100)='./file0\x00', 0x4000000, 0x6, &(0x7f0000000200)=[{&(0x7f0000010000)="0040000068020000973d00001200000000000000843d000000010000611cad49e10000001e000000000000000010ec030200010052654973457233467300000002000000020001000000853d0100000003000000000000000000000000000000000000000000000000000000000000000000000001001e003ac1655f004eed00", 0x80, 0x10000}, {&(0x7f0000010100)="ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff00"/1984, 0x7c0, 0x11000}, {&(0x7f0000010900)="ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff", 0x800, 0x11800}, {&(0x7f0000011100)="0000000000000000000000001200000000000000843d000000010000611cad49e10000001e00"/64, 0x40, 0x3d96000}, {&(0x7f0000011200)="01000200750f0000000000000000000000000000000000000100000002000000000000000000000000002000e00f0000010000000200000001000000f401000002002300bd0f00"/96, 0x60, 0x3d97000}, {&(0x7f0000011300)="000000000000000000000000000000000000000000000000000000000001000000010000000200000022000400020000000000000001000000200004002e2e2eed4103005cf9535f230000003ac1655f3ac1655f3ac1655f01000000ffffffff", 0x60, 0x3d97fa0}], 0x0, &(0x7f0000011400))
+
+[   76.834682][ T9963] IPVS: ftp: loaded support on port[0] = 21
+[   77.001630][ T9963] chnl_net:caif_netlink_parms(): no params data found
+[   77.046723][ T9963] bridge0: port 1(bridge_slave_0) entered blocking state
+[   77.054379][ T9963] bridge0: port 1(bridge_slave_0) entered disabled state
+[   77.059462][ T9963] device bridge_slave_0 entered promiscuous mode
+[   77.063588][ T9963] bridge0: port 2(bridge_slave_1) entered blocking state
+[   77.067050][ T9963] bridge0: port 2(bridge_slave_1) entered disabled state
+[   77.072218][ T9963] device bridge_slave_1 entered promiscuous mode
+[   77.085810][ T9963] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   77.091287][ T9963] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   77.104049][ T9963] team0: Port device team_slave_0 added
+[   77.107816][ T9963] team0: Port device team_slave_1 added
+[   77.119293][ T9963] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   77.122877][ T9963] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   77.137136][ T9963] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   77.143880][ T9963] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   77.147309][ T9963] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   77.161281][ T9963] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   77.175771][ T9963] device hsr_slave_0 entered promiscuous mode
+[   77.179397][ T9963] device hsr_slave_1 entered promiscuous mode
+[   77.312393][ T9963] bridge0: port 2(bridge_slave_1) entered blocking state
+[   77.315977][ T9963] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   77.319551][ T9963] bridge0: port 1(bridge_slave_0) entered blocking state
+[   77.322980][ T9963] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   77.600371][ T9963] 8021q: adding VLAN 0 to HW filter on device bond0
+[   77.606497][ T9825] IPv6: ADDRCONF(NETDEV_CHANGE): veth0: link becomes ready
+[   77.611615][ T9825] bridge0: port 1(bridge_slave_0) entered disabled state
+[   77.625616][ T9825] bridge0: port 2(bridge_slave_1) entered disabled state
+[   77.629561][ T9825] IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
+[   77.635026][ T9963] 8021q: adding VLAN 0 to HW filter on device team0
+[   77.641798][ T9825] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_0: link becomes ready
+[   77.646147][ T9825] bridge0: port 1(bridge_slave_0) entered blocking state
+[   77.649638][ T9825] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   77.659238][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_1: link becomes ready
+[   77.663614][    T5] bridge0: port 2(bridge_slave_1) entered blocking state
+[   77.665890][    T5] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   77.675967][ T9963] hsr0: Slave A (hsr_slave_0) is not up; please bring it up to get a fully working HSR network
+[   77.680767][ T9963] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   77.686859][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_0: link becomes ready
+[   77.692158][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_1: link becomes ready
+[   77.696258][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_0: link becomes ready
+[   77.699784][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_1: link becomes ready
+[   77.709662][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan0: link becomes ready
+[   77.713345][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan1: link becomes ready
+[   77.716963][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): hsr0: link becomes ready
+[   77.721944][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): team0: link becomes ready
+[   77.726550][ T9963] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   77.759318][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_virt_wifi: link becomes ready
+[   77.764323][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_vlan: link becomes ready
+[   77.770470][ T9963] device veth0_vlan entered promiscuous mode
+[   77.773624][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): vlan0: link becomes ready
+[   77.777586][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): vlan1: link becomes ready
+[   77.784123][ T9963] device veth1_vlan entered promiscuous mode
+[   77.794031][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan0: link becomes ready
+[   77.798117][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan1: link becomes ready
+[   77.803130][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_macvtap: link becomes ready
+[   77.807911][ T9963] device veth0_macvtap entered promiscuous mode
+[   77.813770][ T9963] device veth1_macvtap entered promiscuous mode
+[   77.822256][ T9963] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   77.825935][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_to_batadv: link becomes ready
+[   77.831419][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): macvtap0: link becomes ready
+[   77.836638][ T9963] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   77.841682][ T9825] IPv6: ADDRCONF(NETDEV_CHANGE): veth1_to_batadv: link becomes ready
+[   77.918105][ T9963] ieee80211 phy3: Selected rate control algorithm 'minstrel_ht'
+[   77.939323][ T3935] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   77.943273][ T3935] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   77.947254][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   77.960124][ T9963] ieee80211 phy4: Selected rate control algorithm 'minstrel_ht'
+[   77.979585][   T16] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   77.983488][   T16] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   77.987154][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+[   78.023499][T10251] REISERFS (device loop0): found reiserfs format "3.5" with non-standard journal
+[   78.032534][T10251] REISERFS (device loop0): using ordered data mode
+[   78.040344][T10251] reiserfs: using flush barriers
+[   78.049658][T10251] REISERFS (device loop0): journal params: device loop0, size 15748, journal first block 18, max trans len 256, max batch 225, max commit age 30, max trans age 30
+[   78.070724][T10251] REISERFS (device loop0): checking transaction log (loop0)
+[   78.808873][ T4054] Bluetooth: hci0: command 0x0409 tx timeout
+[   79.251408][T10251] REISERFS (device loop0): Using rupasov hash to sort names
+[   79.255236][T10251] REISERFS (device loop0): using 3.5.x disk format
+[   79.262155][T10251] ================================================================================
+[   79.266810][T10251] UBSAN: Undefined behaviour in fs/reiserfs/hashes.c:135:7
+[   79.270391][T10251] signed integer overflow:
+[   79.272603][T10251] 1000000000 * 10 cannot be represented in type 'int'
+[   79.276043][T10251] CPU: 0 PID: 10251 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+[   79.279781][T10251] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+[   79.284857][T10251] Call Trace:
+[   79.286539][T10251]  dump_stack+0xc6/0x11e
+[   79.288619][T10251]  ubsan_epilogue+0xe/0x40
+[   79.290802][T10251]  handle_overflow+0xdf/0xf0
+[   79.293032][T10251]  ? name_to_dev_t+0x6c0/0x9e3
+[   79.295368][T10251]  yura_hash+0x266/0x2e0
+[   79.297450][T10251]  get_third_component+0x97/0x1b0
+[   79.299931][T10251]  reiserfs_find_entry.part.4+0xc9/0x13b0
+[   79.301749][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.303240][T10251]  ? search_by_entry_key+0xec0/0xec0
+[   79.304919][T10251]  ? _raw_spin_unlock+0x29/0x40
+[   79.306490][T10251]  reiserfs_lookup+0x238/0x410
+[   79.308002][T10251]  ? reiserfs_unlink+0x770/0x770
+[   79.309600][T10251]  ? finish_task_switch+0x20d/0x860
+[   79.311284][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.312796][T10251]  ? reiserfs_write_lock_nested+0x59/0xd0
+[   79.314638][T10251]  ? __d_lookup_rcu+0x7e0/0x7e0
+[   79.316203][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.317799][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.319376][T10251]  __lookup_slow+0x217/0x410
+[   79.320830][T10251]  ? __d_lookup+0x58/0x730
+[   79.322264][T10251]  ? vfs_unlink+0x560/0x560
+[   79.323713][T10251]  ? __d_lookup+0x3c7/0x730
+[   79.325152][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.326646][T10251]  ? lookup_dcache+0x1d/0x100
+[   79.328146][T10251]  ? d_lookup+0x9e/0xe0
+[   79.329487][T10251]  lookup_one_len+0x150/0x180
+[   79.331021][T10251]  ? lookup_one_len_unlocked+0x100/0x100
+[   79.332828][T10251]  ? down_write_killable_nested+0x180/0x180
+[   79.334723][T10251]  ? get_cnode+0x1a7/0x220
+[   79.336110][T10251]  reiserfs_lookup_privroot+0x90/0x230
+[   79.337876][T10251]  reiserfs_fill_super+0x1dc7/0x2540
+[   79.339536][T10251]  ? bdev_name.isra.4+0x47/0x280
+[   79.341117][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.342825][T10251]  ? pointer+0x86/0x600
+[   79.344149][T10251]  ? vsnprintf+0x1ba/0x1340
+[   79.345605][T10251]  ? lock_downgrade+0x6d0/0x6d0
+[   79.347162][T10251]  ? idr_get_next+0x140/0x140
+[   79.348671][T10251]  ? wait_for_completion+0x3c0/0x3c0
+[   79.350396][T10251]  ? sget+0x207/0x530
+[   79.351668][T10251]  ? set_blocksize+0x1e8/0x250
+[   79.353217][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.354872][T10251]  mount_bdev+0x2aa/0x360
+[   79.356221][T10251]  ? reiserfs_get_dquots+0x10/0x10
+[   79.357869][T10251]  legacy_get_tree+0x103/0x200
+[   79.359460][T10251]  vfs_get_tree+0x86/0x340
+[   79.360900][T10251]  do_mount+0x109a/0x1730
+[   79.362311][T10251]  ? copy_mount_string+0x40/0x40
+[   79.363892][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.365585][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.367287][T10251]  ? __kasan_kmalloc.constprop.9+0xa0/0xd0
+[   79.369144][T10251]  ? copy_mount_options+0x250/0x340
+[   79.370814][T10251]  ksys_mount+0xa8/0x120
+[   79.372182][T10251]  __x64_sys_mount+0xba/0x150
+[   79.373776][T10251]  do_syscall_64+0x9d/0x5a0
+[   79.375231][T10251]  entry_SYSCALL_64_after_hwframe+0x49/0xbe
+[   79.377146][T10251] RIP: 0033:0x4608aa
+[   79.378407][T10251] Code: b8 a6 00 00 00 0f 05 48 3d 01 f0 ff ff 0f 83 ad 89 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 0f 83 8a 89 fb ff c3 66 0f 1f 84 00 00 00 00 00
+[   79.384702][T10251] RSP: 002b:00007f50d57bba88 EFLAGS: 00000202 ORIG_RAX: 00000000000000a5
+[   79.387404][T10251] RAX: ffffffffffffffda RBX: 00007f50d57bbb20 RCX: 00000000004608aa
+[   79.389975][T10251] RDX: 0000000020000000 RSI: 0000000020000100 RDI: 00007f50d57bbae0
+[   79.392493][T10251] RBP: 00007f50d57bbae0 R08: 00007f50d57bbb20 R09: 0000000020000000
+[   79.395056][T10251] R10: 0000000000000000 R11: 0000000000000202 R12: 0000000020000000
+[   79.397576][T10251] R13: 0000000020000100 R14: 0000000020000200 R15: 0000000020011400
+[   79.400128][T10251] ================================================================================
+[   79.417706][T10251] ================================================================================
+[   79.427942][T10251] UBSAN: Undefined behaviour in fs/reiserfs/hashes.c:140:21
+[   79.431942][T10251] signed integer overflow:
+[   79.433693][T10251] 1316134912 * -2 cannot be represented in type 'int'
+[   79.436256][T10251] CPU: 0 PID: 10251 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+[   79.439109][T10251] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+[   79.442538][T10251] Call Trace:
+[   79.443576][T10251]  dump_stack+0xc6/0x11e
+[   79.444909][T10251]  ubsan_epilogue+0xe/0x40
+[   79.446305][T10251]  handle_overflow+0xdf/0xf0
+[   79.447745][T10251]  ? name_to_dev_t+0x8c1/0x9e3
+[   79.449238][T10251]  yura_hash+0x27d/0x2e0
+[   79.450576][T10251]  get_third_component+0x97/0x1b0
+[   79.452157][T10251]  reiserfs_find_entry.part.4+0xc9/0x13b0
+[   79.453969][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.455433][T10251]  ? search_by_entry_key+0xec0/0xec0
+[   79.457087][T10251]  ? _raw_spin_unlock+0x29/0x40
+[   79.458612][T10251]  reiserfs_lookup+0x238/0x410
+[   79.460104][T10251]  ? reiserfs_unlink+0x770/0x770
+[   79.461650][T10251]  ? finish_task_switch+0x20d/0x860
+[   79.463295][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.464760][T10251]  ? reiserfs_write_lock_nested+0x59/0xd0
+[   79.466558][T10251]  ? __d_lookup_rcu+0x7e0/0x7e0
+[   79.468079][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.469635][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.471200][T10251]  __lookup_slow+0x217/0x410
+[   79.472797][T10251]  ? __d_lookup+0x58/0x730
+[   79.474242][T10251]  ? vfs_unlink+0x560/0x560
+[   79.475645][T10251]  ? __d_lookup+0x3c7/0x730
+[   79.477046][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.478510][T10251]  ? lookup_dcache+0x1d/0x100
+[   79.479979][T10251]  ? d_lookup+0x9e/0xe0
+[   79.481279][T10251]  lookup_one_len+0x150/0x180
+[   79.482747][T10251]  ? lookup_one_len_unlocked+0x100/0x100
+[   79.484508][T10251]  ? down_write_killable_nested+0x180/0x180
+[   79.486346][T10251]  ? get_cnode+0x1a7/0x220
+[   79.487727][T10251]  reiserfs_lookup_privroot+0x90/0x230
+[   79.489422][T10251]  reiserfs_fill_super+0x1dc7/0x2540
+[   79.491080][T10251]  ? bdev_name.isra.4+0x47/0x280
+[   79.492618][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.494390][T10251]  ? pointer+0x86/0x600
+[   79.495691][T10251]  ? vsnprintf+0x1ba/0x1340
+[   79.497099][T10251]  ? lock_downgrade+0x6d0/0x6d0
+[   79.498620][T10251]  ? idr_get_next+0x140/0x140
+[   79.500088][T10251]  ? wait_for_completion+0x3c0/0x3c0
+[   79.501739][T10251]  ? sget+0x207/0x530
+[   79.502999][T10251]  ? set_blocksize+0x1e8/0x250
+[   79.504490][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.506116][T10251]  mount_bdev+0x2aa/0x360
+[   79.507468][T10251]  ? reiserfs_get_dquots+0x10/0x10
+[   79.509063][T10251]  legacy_get_tree+0x103/0x200
+[   79.510558][T10251]  vfs_get_tree+0x86/0x340
+[   79.511935][T10251]  do_mount+0x109a/0x1730
+[   79.513281][T10251]  ? copy_mount_string+0x40/0x40
+[   79.514835][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.516483][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.518138][T10251]  ? __kasan_kmalloc.constprop.9+0xa0/0xd0
+[   79.519949][T10251]  ? copy_mount_options+0x250/0x340
+[   79.521571][T10251]  ksys_mount+0xa8/0x120
+[   79.522967][T10251]  __x64_sys_mount+0xba/0x150
+[   79.524428][T10251]  do_syscall_64+0x9d/0x5a0
+[   79.525841][T10251]  entry_SYSCALL_64_after_hwframe+0x49/0xbe
+[   79.527679][T10251] RIP: 0033:0x4608aa
+[   79.528901][T10251] Code: b8 a6 00 00 00 0f 05 48 3d 01 f0 ff ff 0f 83 ad 89 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 0f 83 8a 89 fb ff c3 66 0f 1f 84 00 00 00 00 00
+[   79.535024][T10251] RSP: 002b:00007f50d57bba88 EFLAGS: 00000202 ORIG_RAX: 00000000000000a5
+[   79.537636][T10251] RAX: ffffffffffffffda RBX: 00007f50d57bbb20 RCX: 00000000004608aa
+[   79.540038][T10251] RDX: 0000000020000000 RSI: 0000000020000100 RDI: 00007f50d57bbae0
+[   79.542690][T10251] RBP: 00007f50d57bbae0 R08: 00007f50d57bbb20 R09: 0000000020000000
+[   79.545014][T10251] R10: 0000000000000000 R11: 0000000000000202 R12: 0000000020000000
+[   79.547404][T10251] R13: 0000000020000100 R14: 0000000020000200 R15: 0000000020011400
+[   79.549823][T10251] ================================================================================
+[   79.603353][T10251] ================================================================================
+[   79.606195][T10251] UBSAN: Undefined behaviour in fs/reiserfs/hashes.c:145:8
+[   79.608353][T10251] signed integer overflow:
+[   79.609684][T10251] 1000000000 * 10 cannot be represented in type 'int'
+[   79.611755][T10251] CPU: 0 PID: 10251 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+[   79.614627][T10251] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+[   79.617774][T10251] Call Trace:
+[   79.618793][T10251]  dump_stack+0xc6/0x11e
+[   79.620096][T10251]  ubsan_epilogue+0xe/0x40
+[   79.621470][T10251]  handle_overflow+0xdf/0xf0
+[   79.622907][T10251]  ? name_to_dev_t+0x6c0/0x9e3
+[   79.624393][T10251]  yura_hash+0x24d/0x2e0
+[   79.625718][T10251]  get_third_component+0x97/0x1b0
+[   79.627288][T10251]  reiserfs_find_entry.part.4+0xc9/0x13b0
+[   79.629117][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.630653][T10251]  ? search_by_entry_key+0xec0/0xec0
+[   79.632309][T10251]  ? _raw_spin_unlock+0x29/0x40
+[   79.633861][T10251]  reiserfs_lookup+0x238/0x410
+[   79.635349][T10251]  ? reiserfs_unlink+0x770/0x770
+[   79.636955][T10251]  ? finish_task_switch+0x20d/0x860
+[   79.638592][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.640050][T10251]  ? reiserfs_write_lock_nested+0x59/0xd0
+[   79.641842][T10251]  ? __d_lookup_rcu+0x7e0/0x7e0
+[   79.643357][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.644899][T10251]  ? lockdep_init_map+0xdd/0x5f0
+[   79.646444][T10251]  __lookup_slow+0x217/0x410
+[   79.647874][T10251]  ? __d_lookup+0x58/0x730
+[   79.649248][T10251]  ? vfs_unlink+0x560/0x560
+[   79.650659][T10251]  ? __d_lookup+0x3c7/0x730
+[   79.652061][T10251]  ? lock_acquire+0x12e/0x3a0
+[   79.653518][T10251]  ? lookup_dcache+0x1d/0x100
+[   79.654980][T10251]  ? d_lookup+0x9e/0xe0
+[   79.656279][T10251]  lookup_one_len+0x150/0x180
+[   79.657736][T10251]  ? lookup_one_len_unlocked+0x100/0x100
+[   79.659498][T10251]  ? down_write_killable_nested+0x180/0x180
+[   79.661335][T10251]  ? get_cnode+0x1a7/0x220
+[   79.662721][T10251]  reiserfs_lookup_privroot+0x90/0x230
+[   79.664420][T10251]  reiserfs_fill_super+0x1dc7/0x2540
+[   79.666074][T10251]  ? bdev_name.isra.4+0x47/0x280
+[   79.667612][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.669255][T10251]  ? pointer+0x86/0x600
+[   79.670698][T10251]  ? vsnprintf+0x1ba/0x1340
+[   79.672182][T10251]  ? lock_downgrade+0x6d0/0x6d0
+[   79.673827][T10251]  ? idr_get_next+0x140/0x140
+[   79.675296][T10251]  ? wait_for_completion+0x3c0/0x3c0
+[   79.676947][T10251]  ? sget+0x207/0x530
+[   79.678200][T10251]  ? set_blocksize+0x1e8/0x250
+[   79.679687][T10251]  ? finish_unfinished+0x12b0/0x12b0
+[   79.681339][T10251]  mount_bdev+0x2aa/0x360
+[   79.682741][T10251]  ? reiserfs_get_dquots+0x10/0x10
+[   79.684401][T10251]  legacy_get_tree+0x103/0x200
+[   79.685896][T10251]  vfs_get_tree+0x86/0x340
+[   79.687276][T10251]  do_mount+0x109a/0x1730
+[   79.688628][T10251]  ? copy_mount_string+0x40/0x40
+[   79.690419][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.692070][T10251]  ? kasan_unpoison_shadow+0x30/0x40
+[   79.693857][T10251]  ? __kasan_kmalloc.constprop.9+0xa0/0xd0
+[   79.695672][T10251]  ? copy_mount_options+0x250/0x340
+[   79.697294][T10251]  ksys_mount+0xa8/0x120
+[   79.698635][T10251]  __x64_sys_mount+0xba/0x150
+[   79.700098][T10251]  do_syscall_64+0x9d/0x5a0
+[   79.701588][T10251]  entry_SYSCALL_64_after_hwframe+0x49/0xbe
+[   79.703519][T10251] RIP: 0033:0x4608aa
+[   79.704736][T10251] Code: b8 a6 00 00 00 0f 05 48 3d 01 f0 ff ff 0f 83 ad 89 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 49 89 ca b8 a5 00 00 00 0f 05 <48> 3d 01 f0 ff ff 0f 83 8a 89 fb ff c3 66 0f 1f 84 00 00 00 00 00
+[   79.710872][T10251] RSP: 002b:00007f50d57bba88 EFLAGS: 00000202 ORIG_RAX: 00000000000000a5
+[   79.713508][T10251] RAX: ffffffffffffffda RBX: 00007f50d57bbb20 RCX: 00000000004608aa
+[   79.716002][T10251] RDX: 0000000020000000 RSI: 0000000020000100 RDI: 00007f50d57bbae0
+[   79.718529][T10251] RBP: 00007f50d57bbae0 R08: 00007f50d57bbb20 R09: 0000000020000000
+[   79.721011][T10251] R10: 0000000000000000 R11: 0000000000000202 R12: 0000000020000000
+[   79.723494][T10251] R13: 0000000020000100 R14: 0000000020000200 R15: 0000000020011400
+[   79.725981][T10251] ================================================================================
+[   79.742546][T10251] REISERFS (device loop0): Created .reiserfs_priv - reserved for xattr storage.
+[   80.586646][   T16] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[   80.589270][   T16] batman_adv: batadv0: Removing interface: batadv_slave_0
+[   80.591891][   T16] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[   80.594142][   T16] batman_adv: batadv0: Removing interface: batadv_slave_1
+[   80.596703][   T16] device bridge_slave_1 left promiscuous mode
+[   80.603517][   T16] bridge0: port 2(bridge_slave_1) entered disabled state
+[   80.606222][   T16] device bridge_slave_0 left promiscuous mode
+[   80.609086][   T16] bridge0: port 1(bridge_slave_0) entered disabled state
+[   80.613393][   T16] device veth1_macvtap left promiscuous mode
+[   80.615380][   T16] device veth0_macvtap left promiscuous mode
+[   80.617265][   T16] device veth1_vlan left promiscuous mode
+[   80.620284][   T16] device veth0_vlan left promiscuous mode
+[   80.837834][   T16] device hsr_slave_0 left promiscuous mode
+[   80.840339][   T16] device hsr_slave_1 left promiscuous mode
+[   80.847818][   T16] team0 (unregistering): Port device team_slave_1 removed
+[   80.853823][   T16] team0 (unregistering): Port device team_slave_0 removed
+[   80.857238][   T16] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[   80.863223][   T16] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[   80.876090][   T16] bond0 (unregistering): Released all slaves

@@ -1,0 +1,3 @@
+# {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:false Repro:false Trace:false}
+r0 = syz_open_dev$vivid(&(0x7f0000000480)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f00000000c0)={0x9, @pix={0x7ff, 0x80000001, 0x1a747b28, 0x5, 0x6, 0xfffffff9, 0xa, 0x7, 0x1, 0x0, 0x0, 0x1}})

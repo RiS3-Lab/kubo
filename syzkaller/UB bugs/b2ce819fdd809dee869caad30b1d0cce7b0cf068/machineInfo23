@@ -1,0 +1,89 @@
+[CPU Info]
+processor           : 0
+vendor_id           : GenuineIntel
+cpu family          : 6
+model               : 85
+model name          : Intel(R) Xeon(R) Silver 4114 CPU @ 2.20GHz
+stepping            : 4
+microcode           : 0x1
+cpu MHz             : 2194.842
+cache size          : 4096 KB
+physical id         : 0
+siblings            : 1
+core id             : 0
+cpu cores           : 1
+apicid              : 0
+initial apicid      : 0
+fpu                 : yes
+fpu_exception       : yes
+cpuid level         : 13
+wp                  : yes
+flags               : fpu vme de pse tsc msr pae mce cx8 apic sep mtrr pge mca cmov pat pse36 clflush mmx fxsr sse sse2 ss syscall nx rdtscp lm constant_tsc arch_perfmon rep_good nopl nonstop_tsc cpuid tsc_known_freq pni pclmulqdq vmx ssse3 fma cx16 sse4_1 sse4_2 x2apic movbe popcnt tsc_deadline_timer aes xsave avx f16c rdrand hypervisor lahf_lm abm 3dnowprefetch tpr_shadow vnmi ept vpid fsgsbase tsc_adjust bmi1 hle avx2 smep bmi2 invpcid rtm mpx avx512f rdseed adx smap clflushopt clwb avx512cd xsaveopt xsavec arat arch_capabilities
+bugs                : cpu_meltdown spectre_v1 spectre_v2 spec_store_bypass l1tf mds swapgs taa
+bogomips            : 4389.68
+clflush size        : 64
+cache_alignment     : 64
+address sizes       : 40 bits physical, 48 bits virtual
+power management    : 
+--------------------------------------------------------------------------------
+
+[KVM]
+/sys/module/kvm:
+	enable_vmware_backdoor: N
+	force_emulation_prefix: N
+	halt_poll_ns: 200000
+	halt_poll_ns_grow: 2
+	halt_poll_ns_grow_start: 10000
+	halt_poll_ns_shrink: 0
+	ignore_msrs: N
+	kvmclock_periodic_sync: Y
+	lapic_timer_advance_ns: -1
+	min_timer_period_us: 200
+	nx_huge_pages: N
+	nx_huge_pages_recovery_ratio: 60
+	pi_inject_timer: 0
+	report_ignored_msrs: Y
+	tsc_tolerance_ppm: 250
+	vector_hashing: Y
+
+/sys/module/kvm_amd:
+	avic: 0
+	dump_invalid_vmcb: N
+	nested: 1
+	npt: 1
+	nrips: 1
+	pause_filter_count: 3000
+	pause_filter_count_grow: 2
+	pause_filter_count_max: 65535
+	pause_filter_count_shrink: 0
+	pause_filter_thresh: 128
+	sev: 0
+	vgif: 1
+	vls: 1
+
+/sys/module/kvm_intel:
+	dump_invalid_vmcs: N
+	emulate_invalid_guest_state: Y
+	enable_apicv: N
+	enable_shadow_vmcs: N
+	ept: Y
+	eptad: N
+	fasteoi: Y
+	flexpriority: N
+	nested: Y
+	nested_early_check: N
+	ple_gap: 0
+	ple_window: 0
+	ple_window_grow: 0
+	ple_window_max: 0
+	ple_window_shrink: 0
+	pml: N
+	preemption_timer: Y
+	pt_mode: 0
+	unrestricted_guest: Y
+	vmentry_l1d_flush: not required
+	vnmi: Y
+	vpid: Y
+
+--------------------------------------------------------------------------------
+

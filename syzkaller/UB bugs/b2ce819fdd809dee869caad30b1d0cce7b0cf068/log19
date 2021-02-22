@@ -1,0 +1,580 @@
+[[0;32m  OK  [0m] Created slice system-rdma\x2dload\x2dmodules.slice.
+         Starting Load RDMA modules from /etc/rdma/modules/rdma.conf...
+         Starting Load RDMA modules from /etc/rdma/modules/roce.conf...
+         Starting RDMA Node Description Daemon...
+[[0;1;31mFAILED[0m] Failed to start Load RDMA modules from /etc/rdma/modules/rdma.conf.
+See 'systemctl status rdma-load-modules@rdma.service' for details.
+[[0;32m  OK  [0m] Started Load RDMA modules from /etc/rdma/modules/roce.conf.
+[[0;32m  OK  [0m] Started RDMA Node Description Daemon.
+[[0;32m  OK  [0m] Reached target RDMA Hardware.
+[[0;32m  OK  [0m] Reached target Network (Pre).
+[[0;32m  OK  [0m] Started Daily apt upgrade and clean activities.
+
+Debian GNU/Linux 9 syzkaller ttyS0
+
+Warning: Permanently added '[localhost]:31406' (ECDSA) to the list of known hosts.
+Argument "" isn't numeric in numeric eq (==) at /usr/bin/rxe_cfg line 141.
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+Cannot get driver information: Operation not supported
+libibverbs: Warning: couldn't open config directory '/etc/libibverbs.d'.
+IB device 'rxe0' wasn't found
+2020/11/19 08:15:28 fuzzer started
+2020/11/19 08:15:30 dialing manager at 10.0.2.10:35850
+2020/11/19 08:15:30 syscalls: 106
+2020/11/19 08:15:30 code coverage: enabled
+2020/11/19 08:15:30 comparison tracing: CONFIG_KCOV_ENABLE_COMPARISONS is not enabled
+2020/11/19 08:15:30 extra coverage: extra coverage is not supported by the kernel
+2020/11/19 08:15:30 setuid sandbox: enabled
+2020/11/19 08:15:30 namespace sandbox: enabled
+2020/11/19 08:15:30 Android sandbox: /sys/fs/selinux/policy does not exist
+2020/11/19 08:15:30 fault injection: enabled
+2020/11/19 08:15:30 leak checking: CONFIG_DEBUG_KMEMLEAK is not enabled
+2020/11/19 08:15:30 net packet injection: enabled
+2020/11/19 08:15:30 net device setup: enabled
+2020/11/19 08:15:30 concurrency sanitizer: /sys/kernel/debug/kcsan does not exist
+2020/11/19 08:15:30 devlink PCI setup: PCI device 0000:00:10.0 is not available
+2020/11/19 08:15:30 USB emulation: /dev/raw-gadget does not exist
+2020/11/19 08:15:30 hci packet injection: enabled
+2020/11/19 08:15:30 wifi device emulation: enabled
+08:15:34 executing program 0:
+ioctl$VIDIOC_S_HW_FREQ_SEEK(0xffffffffffffffff, 0x40305652, &(0x7f0000000000)={0x8, 0x5, 0x8, 0x1ff, 0x4a09, 0x6, 0x3})
+r0 = openat$vimc1(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video1\x00', 0x2, 0x0)
+ioctl$VIDIOC_SUBDEV_S_EDID(r0, 0xc0285629, &(0x7f00000000c0)={0x0, 0x3, 0x7, [], &(0x7f0000000080)=0x80})
+ioctl$VIDIOC_ENCODER_CMD(r0, 0xc028564d, &(0x7f0000000100)={0x0, 0x0, [0x9, 0xc8, 0x1, 0x4, 0x20, 0x70, 0x1, 0x8000]})
+ioctl$VIDIOC_G_PRIORITY(r0, 0x80045643, 0x2)
+ioctl$VIDIOC_G_TUNER(r0, 0xc054561d, &(0x7f0000000140)={0x1, "2b7df3828f195c8809b98b093f305491b2b1f35e3a183ebe04fa1cab9d9d7363", 0x3, 0x20, 0x9, 0x5, 0x10, 0x2, 0x9, 0x5})
+r1 = openat$vimc0(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/video0\x00', 0x2, 0x0)
+r2 = syz_open_dev$vbi(&(0x7f0000000200)='/dev/vbi#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_AUDOUT(r2, 0x80345631, &(0x7f0000000240))
+ioctl$VIDIOC_G_CROP(r2, 0xc014563b, &(0x7f0000000280)={0x4, {0xa5a, 0xffffffc7, 0x16a, 0x97d}})
+ioctl$VIDIOC_S_FBUF(r1, 0x4030560b, &(0x7f0000000380)={0x2, 0x28, &(0x7f00000002c0)="1852a0c624784f3a31776c2de3ace3c9a504000c71facd1f2c0b87fd94de05892922b8dfcd86161cad4e128bc42f63c2cbca2b28a30d4a023d185c2a5ed6fb7b5d83d1cd35302518bf02cb77bbd0ee22dfad3b780f1a75c28216812119d1c026d2b6a6d5e29fab0585b75b1656fe8e31268ad52edd5b98edad09c0edb26e71d64e27876007242d2b89d7b7730504e26cfb4a1ac821aae204084eb7419ed1ffcab7f0f0a90983cf5cb03f15894ce87a9d", {0x5, 0x4, 0x3247504d, 0x6, 0x1, 0x1f, 0x0, 0x3}})
+r3 = syz_open_dev$swradio(&(0x7f00000003c0)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_PARM(r3, 0xc0cc5615, &(0x7f0000000400)={0x1, @raw_data="ab8bb28dd248ea45cad3b51c4e9666ed943af93839576881047423f64da0ac2999f9815e880d083506de7744cf328e957d70420d9c2e41987aff891e810d0c8febd47a60c7d76b8128694f5fcc08ed22ed862658fd025b86694268ca7bc0dbbe6353a6b4839254afaf6396d3c9b859840ee9f70faefd4579b12e375d3053649575dc9f49e3e32236d735ee6c02572715e1dd7c026ce7b33788fadb9f4d0dd93c4e97eedb969a914a609bfbf254ed6e16fc207061653439daabf003fc7c8fe34bb39f4cc8e82eb771"})
+r4 = syz_open_dev$cec(&(0x7f0000000500)='/dev/cec#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_STD(r4, 0x40085618, &(0x7f0000000540)=0xc00000)
+r5 = syz_open_dev$vbi(&(0x7f0000000580)='/dev/vbi#\x00', 0x3, 0x2)
+ioctl$VIDIOC_SUBDEV_G_SELECTION(r5, 0xc040563d, &(0x7f00000005c0)={0x0, 0x0, 0x102, 0x4, {0x59e, 0x3, 0x9, 0x4}})
+ioctl$VIDIOC_S_PRIORITY(r3, 0x40045644, 0x2)
+ioctl$VIDIOC_ENUMSTD(r1, 0xc0485619, &(0x7f0000000600)={0x7, 0x10003, "19757e442884e1c92e6b442b9a04c2037f5e77ef76535991", {0x7fff, 0x11c8}, 0x671})
+ioctl$VIDIOC_STREAMOFF(0xffffffffffffffff, 0x40045613, &(0x7f0000000680)=0x3)
+
+syzkaller login: [   66.835362][ T9975] IPVS: ftp: loaded support on port[0] = 21
+[   66.975582][ T9975] chnl_net:caif_netlink_parms(): no params data found
+[   67.008790][ T9975] bridge0: port 1(bridge_slave_0) entered blocking state
+[   67.012987][ T9975] bridge0: port 1(bridge_slave_0) entered disabled state
+[   67.015776][ T9975] device bridge_slave_0 entered promiscuous mode
+[   67.018677][ T9975] bridge0: port 2(bridge_slave_1) entered blocking state
+[   67.022465][ T9975] bridge0: port 2(bridge_slave_1) entered disabled state
+[   67.025234][ T9975] device bridge_slave_1 entered promiscuous mode
+[   67.048347][ T9975] bond0: (slave bond_slave_0): Enslaving as an active interface with an up link
+[   67.056270][ T9975] bond0: (slave bond_slave_1): Enslaving as an active interface with an up link
+[   67.070823][ T9975] team0: Port device team_slave_0 added
+[   67.074415][ T9975] team0: Port device team_slave_1 added
+[   67.087756][ T9975] batman_adv: batadv0: Adding interface: batadv_slave_0
+[   67.094598][ T9975] batman_adv: batadv0: The MTU of interface batadv_slave_0 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   67.114223][ T9975] batman_adv: batadv0: Not using interface batadv_slave_0 (retrying later): interface not active
+[   67.121544][ T9975] batman_adv: batadv0: Adding interface: batadv_slave_1
+[   67.126312][ T9975] batman_adv: batadv0: The MTU of interface batadv_slave_1 is too small (1500) to handle the transport of batman-adv packets. Packets going over this interface will be fragmented on layer2 which could impact the performance. Setting the MTU to 1560 would solve the problem.
+[   67.144912][ T9975] batman_adv: batadv0: Not using interface batadv_slave_1 (retrying later): interface not active
+[   67.170766][ T9975] device hsr_slave_0 entered promiscuous mode
+[   67.175696][ T9975] device hsr_slave_1 entered promiscuous mode
+[   67.335537][ T9975] bridge0: port 2(bridge_slave_1) entered blocking state
+[   67.337819][ T9975] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   67.340236][ T9975] bridge0: port 1(bridge_slave_0) entered blocking state
+[   67.342458][ T9975] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   67.518001][ T9975] 8021q: adding VLAN 0 to HW filter on device bond0
+[   67.524950][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): veth0: link becomes ready
+[   67.551116][ T4054] bridge0: port 1(bridge_slave_0) entered disabled state
+[   67.568268][ T4054] bridge0: port 2(bridge_slave_1) entered disabled state
+[   67.571580][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): bond0: link becomes ready
+[   67.577131][ T9975] 8021q: adding VLAN 0 to HW filter on device team0
+[   67.583171][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_0: link becomes ready
+[   67.586270][ T4054] bridge0: port 1(bridge_slave_0) entered blocking state
+[   67.588451][ T4054] bridge0: port 1(bridge_slave_0) entered forwarding state
+[   67.600878][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): bridge_slave_1: link becomes ready
+[   67.603560][    T7] bridge0: port 2(bridge_slave_1) entered blocking state
+[   67.605764][    T7] bridge0: port 2(bridge_slave_1) entered forwarding state
+[   67.608440][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_0: link becomes ready
+[   67.612985][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): team_slave_1: link becomes ready
+[   67.615784][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_0: link becomes ready
+[   67.621634][ T9975] hsr0: Slave B (hsr_slave_1) is not up; please bring it up to get a fully working HSR network
+[   67.625405][ T9975] IPv6: ADDRCONF(NETDEV_CHANGE): hsr0: link becomes ready
+[   67.628303][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): team0: link becomes ready
+[   67.632543][ T4054] IPv6: ADDRCONF(NETDEV_CHANGE): hsr_slave_1: link becomes ready
+[   67.657999][ T9975] 8021q: adding VLAN 0 to HW filter on device batadv0
+[   67.662259][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan0: link becomes ready
+[   67.664612][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): vxcan1: link becomes ready
+[   67.700925][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_virt_wifi: link becomes ready
+[   67.705982][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_vlan: link becomes ready
+[   67.709167][ T9975] device veth0_vlan entered promiscuous mode
+[   67.713215][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vlan0: link becomes ready
+[   67.715944][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): vlan1: link becomes ready
+[   67.720171][ T9975] device veth1_vlan entered promiscuous mode
+[   67.727793][ T9975] device veth0_macvtap entered promiscuous mode
+[   67.733010][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan0: link becomes ready
+[   67.735629][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): macvlan1: link becomes ready
+[   67.738617][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_macvtap: link becomes ready
+[   67.742459][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): macvtap0: link becomes ready
+[   67.745864][ T9975] device veth1_macvtap entered promiscuous mode
+[   67.754764][ T9975] batman_adv: batadv0: Interface activated: batadv_slave_0
+[   67.757164][    T7] IPv6: ADDRCONF(NETDEV_CHANGE): veth0_to_batadv: link becomes ready
+[   67.763074][ T9975] batman_adv: batadv0: Interface activated: batadv_slave_1
+[   67.765692][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): veth1_to_batadv: link becomes ready
+[   67.846878][ T9975] ieee80211 phy3: Selected rate control algorithm 'minstrel_ht'
+[   67.887952][   T95] wlan0: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   67.891029][   T95] wlan0: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   67.893886][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): wlan0: link becomes ready
+[   67.905359][ T9975] ieee80211 phy4: Selected rate control algorithm 'minstrel_ht'
+[   67.923307][ T3935] wlan1: Created IBSS using preconfigured BSSID 50:50:50:50:50:50
+[   67.925981][ T3935] wlan1: Creating new IBSS network, BSSID 50:50:50:50:50:50
+[   67.928513][    T5] IPv6: ADDRCONF(NETDEV_CHANGE): wlan1: link becomes ready
+08:15:36 executing program 0:
+r0 = syz_open_dev$swradio(&(0x7f0000000100)='/dev/swradio#\x00', 0x1, 0x2)
+ioctl$VIDIOC_LOG_STATUS(r0, 0x5646, 0x0)
+r1 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+ioctl$VIDIOC_SUBDEV_S_SELECTION(r1, 0xc040563e, &(0x7f0000000000)={0x0, 0x0, 0x1, 0x3, {0x6, 0x7fffffff, 0x70000}})
+
+[   68.024142][T10267] vivid-001: =================  START STATUS  =================
+[   68.028846][T10267] v4l2-ctrls: vivid-001: FM Deviation: 75000
+[   68.031941][T10267] vivid-001: ==================  END STATUS  ==================
+[   68.048173][T10267] vivid-001: =================  START STATUS  =================
+[   68.054948][T10267] v4l2-ctrls: vivid-001: FM Deviation: 75000
+[   68.061950][T10267] vivid-001: ==================  END STATUS  ==================
+08:15:36 executing program 0:
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000c00)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_DV_TIMINGS(r0, 0xc0845658, &(0x7f0000000040)={0x0, @reserved})
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000100)={0x0, 0x2, 0x0, {0x9, @vbi}})
+r1 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_EXPBUF(r1, 0xc0405610, &(0x7f0000000200)={0x8, 0x5, 0x9e99, 0x4000})
+
+08:15:36 executing program 0:
+ioctl$VIDIOC_ENUMSTD(0xffffffffffffffff, 0xc0485619, &(0x7f00000001c0)={0xfff, 0xe0, "8c5a76801360d40cd49563922ffb01d7708edc7f30088175", {0x9, 0x58}, 0x200})
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000180)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000000)={0x1, @pix={0x0, 0x0, 0x3136564e}})
+r1 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000140)={0x2, 0xc, 0x1})
+ioctl$VIDIOC_SUBDEV_S_SELECTION(r1, 0xc040563e, &(0x7f0000000100)={0x0, 0x0, 0x103, 0x0, {0x6, 0xf05, 0x3, 0x7}})
+
+08:15:36 executing program 0:
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/video37\x00', 0x2, 0x0)
+r1 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_ENUMINPUT(r0, 0xc050561a, &(0x7f00000000c0)={0x10000, "b8742665a6691beb87a17fa85df50deb634aa4681244a43b2bb30622a99248f3", 0x3, 0x80000000, 0x4, 0x400, 0x802, 0x2})
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+ioctl$VIDIOC_QUERYSTD(r1, 0x8008563f, &(0x7f0000000000))
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000040)={0x21, 0x2, 0x1})
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000180)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_FMT(r0, 0xc0d05604, &(0x7f00000003c0)={0x3, @sliced})
+ioctl$VIDIOC_S_FBUF(r0, 0x4030560b, &(0x7f0000000080)={0x0, 0x52, &(0x7f0000000000)="5748ef8837129ea6687c6222449d3480e7fddb244c48db6473093fa7853a32e0c6b1b075f116baa1a28e2fdffe17ba4d72090269603d0acd60dc61da4a5113a22a01b9698bb137c5f954590e06bbb98d2e8defa0addbb74054d814493931bdde91b8e24c5a821b5c8b80f151298dae7184", {0x9, 0x9, 0x3032344d, 0x8, 0x7f, 0x3f, 0x9, 0x3}})
+
+08:15:37 executing program 0:
+ioctl$VIDIOC_TRY_ENCODER_CMD(0xffffffffffffffff, 0xc028564e, &(0x7f0000000040)={0x0, 0x1, [0x7, 0x4, 0x895, 0x3ff, 0x4, 0x1, 0xfffffff9, 0x5]})
+r0 = syz_open_dev$swradio(&(0x7f0000000280)='/dev/swradio#\x00', 0x1, 0x2)
+ioctl$VIDIOC_CROPCAP(r0, 0xc02c563a, &(0x7f0000000000)={0x5, {0x7, 0x0, 0x0, 0x4}, {0x40400000, 0x4, 0x0, 0xe1d2}, {0x3f, 0x1400000}})
+ioctl$VIDIOC_LOG_STATUS(r0, 0x5646, 0x0)
+
+[   68.397848][T10287] vivid-001: =================  START STATUS  =================
+[   68.405968][T10287] v4l2-ctrls: vivid-001: FM Deviation: 75000
+[   68.416038][T10287] vivid-001: ==================  END STATUS  ==================
+08:15:37 executing program 0:
+openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video37\x00', 0x2, 0x0)
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000000)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_FBUF(r0, 0x8030560a, 0x0)
+ioctl$VIDIOC_QUERYCTRL(r0, 0xc0445624, &(0x7f0000000040)={0x9, 0x100, "74a25ea7f2418fe3fccd668425260d7ce55729001d187a30e800ec061ea46eaf", 0xe4, 0x0, 0x80000000, 0x10000, 0x80})
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_QUERYCAP(r0, 0x80685600, &(0x7f0000000400))
+r1 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+r2 = syz_open_dev$swradio(&(0x7f0000000300)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_MODULATOR(r2, 0xc0445636, &(0x7f0000000340)={0x1, "8ac0cb964bb7635f65fae23509024d5e583c112ebda4de96e412871f955985cb", 0x20, 0x500, 0x1, 0x4, 0x3})
+r3 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r3, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+ioctl$VIDIOC_REQBUFS(r3, 0xc0145608, &(0x7f00000003c0)={0xfffffff9, 0xf, 0x4})
+ioctl$VIDIOC_G_SELECTION(r0, 0xc040565e, &(0x7f0000000480)={0x7, 0x101, 0x5, {0x5, 0x0, 0x8, 0x7fff}})
+ioctl$VIDIOC_G_AUDOUT(r1, 0x80345631, &(0x7f00000002c0))
+r4 = syz_open_dev$vivid(&(0x7f00000004c0)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_PRIORITY(r4, 0x40045644, 0x2)
+r5 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x2, 0x2)
+r6 = syz_open_dev$radio(&(0x7f0000000180)='/dev/radio#\x00', 0x3, 0x2)
+ioctl$VIDIOC_CREATE_BUFS(r6, 0xc100565c, &(0x7f00000001c0)={0x9, 0x1d87, 0x1, {0x1, @vbi={0x4, 0x1ff, 0x6, 0x41416770, [0x6, 0xfffffffa], [0x1, 0xfffffe37], 0x1}}, 0x3})
+ioctl$VIDIOC_G_FBUF(r5, 0x8030560a, &(0x7f0000000000)={0x50, 0x20, &(0x7f0000000100)="fa74e55ea99ddbbe48101f8bdbda4ccfd39ed16834b59de10f3c63dbf3fec6c744a3348238ad5087ba414f5e6229d4274572c2d2107ca7e04f6c1e438cd9e41954b3f8b50037e86ae54f05ab838b84d352dfb0885ec9f59f1ee21004638a", {0x1, 0x40, 0x36314d59, 0x5, 0x0, 0x8000, 0x5, 0x7}})
+ioctl$VIDIOC_ENUMINPUT(r5, 0xc050561a, &(0x7f0000000080)={0x0, "3ea1cb86d6d4670b5a2a431fc6d15686c9f9b01fe4f254287da349b481456421"})
+ioctl$VIDIOC_DQEVENT(0xffffffffffffffff, 0x80885659, &(0x7f0000000540))
+
+08:15:37 executing program 0:
+ioctl$VIDIOC_UNSUBSCRIBE_EVENT(0xffffffffffffffff, 0x4020565b, &(0x7f0000000000)={0x4, 0x2, 0x2})
+r0 = syz_open_dev$radio(&(0x7f0000000040)='/dev/radio#\x00', 0x3, 0x2)
+ioctl$VIDIOC_CROPCAP(r0, 0xc02c563a, 0x0)
+ioctl$VIDIOC_OVERLAY(r0, 0x4004560e, &(0x7f00000000c0)=0xb6f)
+ioctl$VIDIOC_SUBDEV_S_CROP(r0, 0xc038563c, &(0x7f0000000100)={0x1, 0x0, {0x4, 0x2, 0x7, 0xffffffff}})
+ioctl$VIDIOC_S_PARM(r0, 0xc0cc5616, &(0x7f0000000140)={0x3, @capture={0x1000, 0x1, {0xfffffffe, 0x2}, 0x3, 0x8001}})
+ioctl$VIDIOC_SUBDEV_ENUM_MBUS_CODE(r0, 0xc0305602, &(0x7f0000000240)={0x0, 0x800, 0x2021, 0x1})
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000280)={0x2, 0x46674de8, 0x3, {0x9, @sdr={0x3631564e, 0x8}}, 0x4})
+r1 = openat$vimc0(0xffffffffffffff9c, &(0x7f0000000380)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_TRY_ENCODER_CMD(r1, 0xc028564e, &(0x7f00000003c0)={0x3, 0x1, [0x4, 0x3, 0x29, 0x6, 0x3ff, 0x3, 0x35b3, 0x8]})
+ioctl$VIDIOC_STREAMOFF(r1, 0x40045613, &(0x7f0000000080)=0x4)
+r2 = syz_open_dev$radio(&(0x7f0000000400)='/dev/radio#\x00', 0x3, 0x2)
+ioctl$VIDIOC_S_FBUF(r2, 0x4030560b, &(0x7f0000000480)={0x18, 0x28, &(0x7f0000000440)="9b235a931ee5511a03414250ffcc674c1283cc9893be4aac94b380edb7993350a9b190ba6e32054a66a801b003ce3835e0f8bc3fadfb2b14", {0x112f, 0x8c, 0x34325842, 0x8, 0xffffffff, 0x8001, 0xe, 0x7f}})
+openat$vimc1(0xffffffffffffff9c, &(0x7f0000000d40)='/dev/video1\x00', 0x2, 0x0)
+openat$vimc2(0xffffffffffffff9c, &(0x7f0000000d80)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_G_ENC_INDEX(0xffffffffffffffff, 0x8818564c, &(0x7f00000004c0))
+syz_open_dev$radio(&(0x7f0000000d00)='/dev/radio#\x00', 0x3, 0x2)
+
+08:15:37 executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video2\x00', 0x2, 0x0)
+r1 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000140)={0x54d6, 0xb, 0x1})
+openat$vicodec0(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/video36\x00', 0x2, 0x0)
+r2 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000100)='/dev/video36\x00', 0x2, 0x0)
+r3 = openat$vimc0(0xffffffffffffff9c, &(0x7f0000000180)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_TRY_ENCODER_CMD(r3, 0xc028564e, &(0x7f00000001c0)={0x0, 0x0, [0x3, 0x9, 0x12a6, 0x6, 0x3, 0x9, 0x6, 0x9]})
+ioctl$VIDIOC_STREAMON(r2, 0x40045612, &(0x7f0000000000)=0x5f71)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000080)={0x20, 0x1, 0x1})
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$vbi(&(0x7f0000000000)='/dev/vbi#\x00', 0x2, 0x2)
+r1 = syz_open_dev$vivid(&(0x7f0000000000)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_INPUT(r1, 0xc0045627, &(0x7f0000000040))
+ioctl$VIDIOC_G_AUDOUT(r0, 0x80345631, &(0x7f0000000540))
+r2 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video36\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_PRIORITY(r2, 0x40045644, 0x0)
+ioctl$VIDIOC_G_FBUF(r0, 0x8030560a, &(0x7f0000000140)={0x8, 0x28, &(0x7f00000001c0)="ceb78af689c03acefac57e6038028c2d54240050c0dcca701d22581c7458cb3d81a680fc7e3a373ecba8921255a44d388d1a1ec9a4ca9333bae58360e5baa39c3e187678152819", {0x80000000, 0xfffffff9, 0x34325842, 0x6, 0x8001, 0x1f, 0x2, 0x10001}})
+ioctl$VIDIOC_G_CROP(r2, 0xc014563b, &(0x7f0000000180)={0xb, {0x5, 0x3, 0x1f, 0x5}})
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000040)={0x9, @pix_mp={0x4, 0x905, 0x30323953, 0x2, 0x3, [{0x4, 0x5}, {0xf7, 0x1}, {0x3, 0x7}, {0x80000001, 0x3}, {0x7, 0x1}, {0x3, 0xe100}, {0x0, 0x3}, {0x3, 0x3ff}], 0x2, 0x4, 0x2}})
+ioctl$VIDIOC_OVERLAY(r0, 0x4004560e, &(0x7f0000000240))
+
+08:15:37 executing program 0:
+r0 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video36\x00', 0x2, 0x0)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000180)={0xfffffff9, 0x1, 0x1})
+r1 = syz_open_dev$vivid(&(0x7f0000000080)='/dev/video#\x00', 0x0, 0x2)
+r2 = openat$vimc2(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/video2\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENUM_FRAMEINTERVALS(r2, 0xc034564b, &(0x7f0000000200)={0x8, 0x43353039, 0x8, 0x0, 0x3, @stepwise={{0x40, 0x2}, {0xfffffffc, 0x7}, {0x8, 0xffffffff}}})
+ioctl$VIDIOC_STREAMOFF(r1, 0x40045613, &(0x7f00000000c0)=0x5)
+r3 = openat$vimc0(0xffffffffffffff9c, &(0x7f0000000240)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_CREATE_BUFS(r3, 0xc100565c, &(0x7f0000000280)={0x21b8, 0xf5, 0x3, {0x1, @pix_mp={0x9, 0x8, 0x32525942, 0x2, 0x4, [{0x61a, 0x4}, {0xeb, 0x7}, {0x92}, {0x1000, 0x6}, {0x3, 0x3f}, {0xf, 0x40}, {0x1, 0xd46}, {0x9, 0x1}], 0x0, 0x1, 0x2, 0x1, 0x7}}, 0x8})
+r4 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video36\x00', 0x2, 0x0)
+r5 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r5, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_S_MODULATOR(r5, 0x40445637, &(0x7f0000000100)={0xb9e, "b0dff0f732ad11e9b82c04ab3d52fbbaf97b131c767141633a1e6fe9ce19c89f", 0x20, 0xfffffffe, 0x3f, 0x4, 0x4})
+ioctl$VIDIOC_G_FMT(r4, 0xc0d05604, &(0x7f0000000380)={0x1, @sliced={0x4, [0xfef4, 0x47a, 0x8001, 0x2, 0xffc1, 0x1, 0x7, 0x7, 0x80, 0x0, 0x3ff, 0x5, 0x9, 0xd03, 0x1, 0x3f, 0x1ff, 0x8000, 0x6, 0xa0ab, 0x40, 0x9, 0x7ff, 0xfff, 0x800, 0x7f, 0x40, 0x2, 0x200, 0x1f, 0x7fff, 0x6076, 0x3ff, 0x0, 0x80, 0x5, 0x3, 0x7, 0x9, 0x7, 0x654, 0xfff7, 0xfff, 0x4, 0x9, 0x5, 0x5, 0xb9ea]}})
+
+[   68.829248][    T5] Bluetooth: hci0: command 0x0409 tx timeout
+08:15:37 executing program 0:
+r0 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000040)={0x10001, 0xb, 0x1})
+ioctl$VIDIOC_STREAMON(r0, 0x40045612, &(0x7f0000000000)=0x3)
+r1 = syz_open_dev$vbi(&(0x7f0000000100)='/dev/vbi#\x00', 0x3, 0x2)
+ioctl$VIDIOC_LOG_STATUS(r1, 0x5646, 0x0)
+
+[   68.958701][T10321] vivid-001: =================  START STATUS  =================
+[   68.964741][T10321] vivid-001: ==================  END STATUS  ==================
+08:15:37 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000240)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000140)={0x3, @pix={0x0, 0x0, 0x32344d59, 0x0, 0x0, 0x0, 0xd53873410053b86a, 0x0, 0x1, 0x3, 0x0, 0x9}})
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000040)={0x4, @vbi={0x1c00000, 0x2, 0x28, 0x3147504d, [0x0, 0x9], [0xffffff53, 0x4], 0x1}})
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_SELECTION(r0, 0xc040565f, &(0x7f0000000000)={0xa})
+ioctl$VIDIOC_CREATE_BUFS(0xffffffffffffffff, 0xc100565c, &(0x7f0000000080)={0x8001, 0x5, 0x4, {0x3, @pix={0x9c4b, 0x3, 0x4c47504a, 0x8, 0x5, 0x8, 0x3, 0x1, 0x0, 0x8, 0x1}}, 0xffffff3c})
+
+08:15:37 executing program 0:
+syz_open_dev$radio(&(0x7f0000000040)='/dev/radio#\x00', 0x3, 0x2)
+openat$vimc0(0xffffffffffffff9c, &(0x7f0000000380)='/dev/video0\x00', 0x2, 0x0)
+r0 = openat$vimc1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video1\x00', 0x2, 0x0)
+ioctl$VIDIOC_DECODER_CMD(r0, 0xc0485660, &(0x7f0000000080)={0x1, 0xfffffffffffffffe, @start={0xffff, 0x1}})
+
+08:15:37 executing program 0:
+r0 = syz_open_dev$vbi(&(0x7f0000000040)='/dev/vbi#\x00', 0x1, 0x2)
+ioctl$VIDIOC_DQEVENT(r0, 0x80885659, 0x0)
+
+08:15:38 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f00000002c0)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_LOG_STATUS(r0, 0x5646, 0x0)
+ioctl$VIDIOC_G_FMT(r0, 0xc0d05604, &(0x7f0000000300)={0x0, @vbi})
+r1 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENUM_FRAMESIZES(r1, 0xc02c564a, &(0x7f0000000040)={0x5, 0x31424752, 0x1, @stepwise={0x200, 0x6, 0x8, 0x1, 0x10000000, 0xc2de}})
+
+[   69.919199][T10341] vivid-001: =================  START STATUS  =================
+[   69.925572][T10341] v4l2-ctrls: vivid-001: Test Pattern: 75% Colorbar
+[   69.931726][T10341] v4l2-ctrls: vivid-001: Fill Percentage of Frame: 100
+[   69.936386][T10341] v4l2-ctrls: vivid-001: Horizontal Movement: No Movement
+[   69.942747][T10341] v4l2-ctrls: vivid-001: Vertical Movement: No Movement
+[   69.947674][T10341] v4l2-ctrls: vivid-001: OSD Text Mode: All
+[   69.958001][T10341] v4l2-ctrls: vivid-001: Show Border: false
+[   69.963123][T10341] v4l2-ctrls: vivid-001: Show Square: false
+[   69.968189][T10341] v4l2-ctrls: vivid-001: Sensor Flipped Horizontally: false
+[   69.976207][T10341] v4l2-ctrls: vivid-001: Sensor Flipped Vertically: false
+[   69.980477][T10341] v4l2-ctrls: vivid-001: Insert SAV Code in Image: false
+[   69.983221][T10341] v4l2-ctrls: vivid-001: Insert EAV Code in Image: false
+[   69.986062][T10341] v4l2-ctrls: vivid-001: Reduced Framerate: false
+[   69.989898][T10341] v4l2-ctrls: vivid-001: Enable Capture Cropping: true
+[   69.992719][T10341] v4l2-ctrls: vivid-001: Enable Capture Composing: true
+[   69.995323][T10341] v4l2-ctrls: vivid-001: Enable Capture Scaler: true
+[   70.002027][T10341] v4l2-ctrls: vivid-001: Timestamp Source: End of Frame
+[   70.007798][T10341] v4l2-ctrls: vivid-001: Colorspace: sRGB
+[   70.012815][T10341] v4l2-ctrls: vivid-001: Transfer Function: Default
+[   70.017342][T10341] v4l2-ctrls: vivid-001: Y'CbCr Encoding: Default
+[   70.020361][T10341] v4l2-ctrls: vivid-001: HSV Encoding: Hue 0-179
+[   70.022631][T10341] v4l2-ctrls: vivid-001: Quantization: Default
+[   70.024986][T10341] v4l2-ctrls: vivid-001: Apply Alpha To Red Only: false
+[   70.027360][T10341] v4l2-ctrls: vivid-001: Standard Aspect Ratio: 4x3
+[   70.035060][T10341] v4l2-ctrls: vivid-001: DV Timings Signal Mode: Current DV Timings inactive
+[   70.041462][T10341] v4l2-ctrls: vivid-001: DV Timings: 640x480p59 inactive
+[   70.045538][T10341] v4l2-ctrls: vivid-001: DV Timings Aspect Ratio: Source Width x Height
+[   70.049899][T10341] v4l2-ctrls: vivid-001: Maximum EDID Blocks: 2
+[   70.052255][T10341] v4l2-ctrls: vivid-001: Limited RGB Range (16-235): false
+[   70.054817][T10341] v4l2-ctrls: vivid-001: Rx RGB Quantization Range: Automatic
+[   70.057516][T10341] v4l2-ctrls: vivid-001: Power Present: 0x00000001
+[   70.061375][T10341] tpg source WxH: 640x360 (Y'CbCr)
+[   70.063461][T10341] tpg field: 1
+[   70.064741][T10341] tpg crop: 640x360@0x0
+[   70.066247][T10341] tpg compose: 640x360@0x0
+[   70.067882][T10341] tpg colorspace: 8
+[   70.070846][T10341] tpg transfer function: 0/0
+[   70.072709][T10341] tpg Y'CbCr encoding: 0/0
+[   70.074422][T10341] tpg quantization: 0/0
+[   70.075896][T10341] tpg RGB range: 0/2
+[   70.077236][T10341] vivid-001: ==================  END STATUS  ==================
+08:15:38 executing program 0:
+r0 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video36\x00', 0x2, 0x0)
+r1 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_S_EDID(r0, 0xc0285629, &(0x7f0000000180)={0x0, 0x9a66, 0x8000, [], &(0x7f0000000140)=0x2})
+r2 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video37\x00', 0x2, 0x0)
+r3 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r3, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_S_FREQUENCY(0xffffffffffffffff, 0x402c5639, &(0x7f0000000280)={0x80000001, 0x4, 0x800})
+ioctl$VIDIOC_REQBUFS(r3, 0xc0145608, &(0x7f00000001c0)={0x20, 0x9, 0x2})
+ioctl$VIDIOC_SUBDEV_G_FMT(r2, 0xc0585604, &(0x7f00000000c0)={0x1, 0x0, {0x8001, 0xfffff000, 0x1011, 0x1, 0xb, 0x3, 0x0, 0x5}})
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000080)={0x3f, 0x2, 0x1})
+r4 = syz_open_dev$swradio(&(0x7f0000000200)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_CROP(r4, 0x4014563c, &(0x7f0000000240)={0xb, {0x8, 0x8000, 0xc774}})
+
+08:15:39 executing program 0:
+r0 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video36\x00', 0x2, 0x0)
+ioctl$VIDIOC_CROPCAP(r0, 0xc02c563a, &(0x7f0000000080)={0x0, {0x0, 0x4}, {0xc33c, 0x0, 0x20}, {0x0, 0x2}})
+
+08:15:39 executing program 0:
+ioctl$VIDIOC_S_STD(0xffffffffffffffff, 0x40085618, &(0x7f0000000000)=0x50007)
+syz_open_dev$cec(0xfffffffffffffffe, 0x2, 0x2)
+
+08:15:39 executing program 0:
+ioctl$VIDIOC_SUBSCRIBE_EVENT(0xffffffffffffffff, 0x4020565a, &(0x7f0000000000)={0x8000000, 0x2, 0x1})
+r0 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_STD(r0, 0x40085618, &(0x7f0000000080)=0x400)
+
+08:15:39 executing program 0:
+r0 = syz_open_dev$vbi(&(0x7f0000000040)='/dev/vbi#\x00', 0x3, 0x2)
+ioctl$VIDIOC_G_SLICED_VBI_CAP(r0, 0xc0745645, &(0x7f0000000080)={0x101, [0x5, 0x1ff, 0x7, 0x8, 0x6, 0x9, 0x7, 0x1ff, 0x2, 0x8, 0xc0, 0x200, 0x0, 0x20, 0x9, 0x8, 0x1, 0x7fff, 0x273, 0x3, 0x0, 0x1, 0x7f, 0x0, 0x36b7, 0x7d6, 0x80, 0x1, 0x80, 0x400, 0x1ff, 0x7fff, 0xfffb, 0x20, 0x40, 0x1, 0x9, 0x40, 0x9, 0x400, 0x1, 0x3, 0x1, 0x90, 0x6ef, 0x0, 0x3, 0x6], 0xa})
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000140)={0x6, @sliced})
+
+08:15:39 executing program 0:
+r0 = syz_open_dev$radio(&(0x7f0000000200)='/dev/radio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_QUERYSTD(r0, 0x8008563f, &(0x7f0000000240))
+r1 = syz_open_dev$radio(&(0x7f0000000040)='/dev/radio#\x00', 0x0, 0x2)
+syz_open_dev$cec(&(0x7f0000000000)='/dev/cec#\x00', 0x1, 0x2)
+r2 = syz_open_dev$radio(&(0x7f00000000c0)='/dev/radio#\x00', 0x1, 0x2)
+ioctl$VIDIOC_DQEVENT(r1, 0x80885659, &(0x7f0000000140)={0x0, @frame_sync})
+openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000100)='/dev/video36\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_FREQUENCY(r2, 0x402c5639, &(0x7f0000000080)={0xefc, 0x5, 0x1ab})
+
+[   70.907913][    T5] Bluetooth: hci0: command 0x041b tx timeout
+08:15:39 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_AUDIO(r0, 0x40345622, &(0x7f0000000000)={0x0, "3b3ceef6da2fd90e1fd4d8213f741b53a0ac364de68bbb0772d95aecdba7afd5"})
+r1 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_QUERY_EXT_CTRL(r1, 0xc0e85667, &(0x7f00000000c0)={0x140000000, 0x100, "a4ba4814eb3d220563d9d7a814d3ce8f8b1af3d8ff607b941e2bce25a0bb0d0c", 0x480000, 0x379, 0x81, 0x1, 0xe14, 0x5, 0x5, 0x20000000, [0x3ff, 0x10001, 0x0, 0xfffffffa]})
+ioctl$VIDIOC_S_INPUT(r0, 0xc0045627, &(0x7f0000000080)=0x8001)
+
+08:15:39 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x0, 0x2)
+r1 = openat$vimc1(0xffffffffffffff9c, &(0x7f0000000080)='/dev/video1\x00', 0x2, 0x0)
+ioctl$VIDIOC_S_FMT(r1, 0xc0d05605, &(0x7f00000000c0)={0xc, @sliced={0x3, [0x7, 0x8, 0xfffc, 0x1000, 0x5, 0xfe19, 0x9, 0x3, 0x6, 0x0, 0xfff9, 0x4, 0x7ff, 0x7, 0x4, 0x1, 0x1000, 0x1, 0x7, 0xfff, 0x7, 0xfff7, 0x401, 0x7f, 0x0, 0x800, 0x6, 0x20, 0x20, 0x40, 0xff, 0xde1, 0xff, 0x9, 0x5, 0x1, 0x8, 0x4, 0x1c, 0x49f9, 0xb977, 0x7f, 0x200, 0x8001, 0x42, 0x0, 0x3, 0x2], 0x80}})
+ioctl$VIDIOC_S_FBUF(r0, 0x4030560b, &(0x7f0000000000)={0x0, 0x0, &(0x7f0000000080), {0x7f, 0x51, 0x35315241}})
+
+08:15:40 executing program 0:
+r0 = openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video36\x00', 0x2, 0x0)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000080)={0x9, 0x9, 0x4})
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000180)={0xfffffff9, 0x1, 0x1})
+openat$vicodec0(0xffffffffffffff9c, &(0x7f0000000040)='/dev/video36\x00', 0x2, 0x0)
+
+08:15:40 executing program 0:
+r0 = openat$vimc2(0xffffffffffffff9c, &(0x7f0000000640)='/dev/video2\x00', 0x2, 0x0)
+r1 = openat$vimc0(0xffffffffffffff9c, &(0x7f0000000000)='/dev/video0\x00', 0x2, 0x0)
+ioctl$VIDIOC_ENUM_FMT(r1, 0xc0405602, &(0x7f0000000040)={0x83, 0x5, 0x3, "eaa6a21b094fa97fd9c5fbfb33104a961d48f0e80e9f1bc6f5cad2785ce6bdad", 0x4c314356})
+ioctl$VIDIOC_TRY_EXT_CTRLS(r0, 0xc0205649, &(0x7f0000000100)={0x0, 0x101, 0x0, 0xffffffffffffffff, 0x0, 0x0})
+r2 = syz_open_dev$vbi(&(0x7f0000000080)='/dev/vbi#\x00', 0x1, 0x2)
+ioctl$VIDIOC_G_JPEGCOMP(r2, 0x808c563d, &(0x7f0000000140))
+
+08:15:40 executing program 0:
+syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+
+08:15:40 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000000)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000180)={0x3, @pix_mp={0xfffffffc, 0x0, 0x0, 0x0, 0x0, [{0x6, 0x1002}, {0x0, 0x40}, {}, {}, {}, {}, {}, {0x0, 0x3}], 0x0, 0x0, 0x0, 0x0, 0x7}})
+
+08:15:40 executing program 0:
+syz_open_dev$vivid(0x0, 0x0, 0x2)
+r0 = openat$vicodec1(0xffffffffffffff9c, &(0x7f0000000300)='/dev/video37\x00', 0x2, 0x0)
+ioctl$VIDIOC_REQBUFS(r0, 0xc0145608, &(0x7f0000000100)={0x40, 0x2, 0x1})
+r1 = syz_open_dev$swradio(&(0x7f0000000000)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_REQBUFS(r1, 0xc0145608, &(0x7f0000000040)={0x0, 0xb, 0x1})
+ioctl$VIDIOC_S_STD(r1, 0x40085618, &(0x7f0000000000)=0x100000)
+
+08:15:40 executing program 0:
+ioctl$VIDIOC_DBG_S_REGISTER(0xffffffffffffffff, 0x4038564f, &(0x7f0000000040)={{0x0, @addr=0x7f}, 0x8, 0x100000000})
+ioctl$VIDIOC_LOG_STATUS(0xffffffffffffffff, 0x5646, 0x0)
+
+08:15:40 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f00000001c0)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_LOG_STATUS(r0, 0x5646, 0x0)
+ioctl$VIDIOC_SUBDEV_S_DV_TIMINGS(r0, 0xc0845657, &(0x7f0000000000))
+ioctl$VIDIOC_S_HW_FREQ_SEEK(r0, 0x40305652, &(0x7f00000000c0)={0xfc, 0x3, 0xffff, 0x100, 0x7, 0x1, 0x3c})
+
+[   72.038639][T10402] vivid-001: =================  START STATUS  =================
+[   72.046701][T10402] v4l2-ctrls: vivid-001: Test Pattern: 75% Colorbar
+[   72.055682][T10402] v4l2-ctrls: vivid-001: Fill Percentage of Frame: 100
+[   72.062242][T10402] v4l2-ctrls: vivid-001: Horizontal Movement: No Movement
+[   72.069606][T10402] v4l2-ctrls: vivid-001: Vertical Movement: No Movement
+[   72.074153][T10402] v4l2-ctrls: vivid-001: OSD Text Mode: All
+[   72.079389][T10402] v4l2-ctrls: vivid-001: Show Border: false
+[   72.083015][T10402] v4l2-ctrls: vivid-001: Show Square: false
+[   72.091457][T10402] v4l2-ctrls: vivid-001: Sensor Flipped Horizontally: false
+[   72.096310][T10402] v4l2-ctrls: vivid-001: Sensor Flipped Vertically: false
+[   72.101653][T10402] v4l2-ctrls: vivid-001: Insert SAV Code in Image: false
+[   72.103887][T10402] v4l2-ctrls: vivid-001: Insert EAV Code in Image: false
+[   72.106100][T10402] v4l2-ctrls: vivid-001: Reduced Framerate: false
+[   72.109478][T10402] v4l2-ctrls: vivid-001: Enable Capture Cropping: true
+[   72.111653][T10402] v4l2-ctrls: vivid-001: Enable Capture Composing: true
+[   72.113824][T10402] v4l2-ctrls: vivid-001: Enable Capture Scaler: true
+[   72.115949][T10402] v4l2-ctrls: vivid-001: Timestamp Source: End of Frame
+[   72.119224][T10402] v4l2-ctrls: vivid-001: Colorspace: sRGB
+[   72.121059][T10402] v4l2-ctrls: vivid-001: Transfer Function: Default
+[   72.123134][T10402] v4l2-ctrls: vivid-001: Y'CbCr Encoding: Default
+[   72.125136][T10402] v4l2-ctrls: vivid-001: HSV Encoding: Hue 0-179
+[   72.127117][T10402] v4l2-ctrls: vivid-001: Quantization: Default
+[   72.130714][T10402] v4l2-ctrls: vivid-001: Apply Alpha To Red Only: false
+[   72.133190][T10402] v4l2-ctrls: vivid-001: Standard Aspect Ratio: 4x3
+[   72.135286][T10402] v4l2-ctrls: vivid-001: DV Timings Signal Mode: Current DV Timings inactive
+[   72.138835][T10402] v4l2-ctrls: vivid-001: DV Timings: 640x480p59 inactive
+[   72.141067][T10402] v4l2-ctrls: vivid-001: DV Timings Aspect Ratio: Source Width x Height
+[   72.143663][T10402] v4l2-ctrls: vivid-001: Maximum EDID Blocks: 2
+[   72.145636][T10402] v4l2-ctrls: vivid-001: Limited RGB Range (16-235): false
+[   72.149071][T10402] v4l2-ctrls: vivid-001: Rx RGB Quantization Range: Automatic
+[   72.151512][T10402] v4l2-ctrls: vivid-001: Power Present: 0x00000001
+[   72.153693][T10402] tpg source WxH: 640x360 (Y'CbCr)
+[   72.155301][T10402] tpg field: 1
+[   72.156459][T10402] tpg crop: 640x360@0x0
+[   72.158944][T10402] tpg compose: 640x360@0x0
+[   72.160450][T10402] tpg colorspace: 8
+[   72.161701][T10402] tpg transfer function: 0/0
+[   72.163136][T10402] tpg Y'CbCr encoding: 0/0
+[   72.164842][T10402] tpg quantization: 0/0
+[   72.166174][T10402] tpg RGB range: 0/2
+[   72.168960][T10402] vivid-001: ==================  END STATUS  ==================
+08:15:40 executing program 0:
+r0 = syz_open_dev$vbi(&(0x7f0000000100)='/dev/vbi#\x00', 0x2, 0x2)
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000300)={0x0, 0x40, 0x4, {0x4, @win={{0x0, 0x0, 0x1}, 0x0, 0x0, &(0x7f00000001c0), 0x0, 0x0}}})
+ioctl$VIDIOC_CREATE_BUFS(r0, 0xc100565c, &(0x7f0000000000)={0x79, 0x7, 0x3, {0xc, @raw_data="337f9256e6bf700b712af56d549f2777d68ebcf89b46629b82c6533fa66510af9c83cfc67735969625dbec71ff84b8c604fe80e40fb880de739416cf12a719c0d19c6ff3c67d277a7ee67b3276dfcbbd9c775c9ed10fd7cb1332d889057b98b31a154e68f71326b148cd1ed7b3832e13bde1c174830c1dcf804ca18e5afdb1fb97df226b2586b209c4d5020d5db48e1180d850d9a601bcd2eb448a584837192fdcda79745278699ae96b6c0147a224de2a91a826186ec693c322462c84adaf7fcd51db5aa19b934a"}, 0x8})
+
+08:15:40 executing program 0:
+r0 = syz_open_dev$swradio(&(0x7f0000000080)='/dev/swradio#\x00', 0x0, 0x2)
+ioctl$VIDIOC_SUBDEV_ENUM_DV_TIMINGS(r0, 0xc0945662, &(0x7f00000000c0)={0x78, 0x0, [], {0x0, @bt={0x13, 0x2a, 0x0, 0x7, 0x4, 0x5, 0xfffffff9, 0x1, 0xe04, 0x6, 0xfffffff7, 0x8c, 0xfffffff8, 0x7fffffff, 0x1a, 0x1e, {0x4, 0x4}, 0x81}}})
+r1 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x2, 0x2)
+ioctl$VIDIOC_S_SELECTION(r1, 0xc040565f, &(0x7f0000000000)={0x9})
+
+08:15:40 executing program 0:
+r0 = syz_open_dev$vivid(&(0x7f0000000040)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_SUBDEV_DV_TIMINGS_CAP(0xffffffffffffffff, 0xc0905664, &(0x7f0000000180)={0x0, 0x0, [], @raw_data=[0x40, 0x0, 0xfffffffe, 0x6, 0x9a7, 0x57, 0xf81, 0x9, 0x2, 0x9, 0x4, 0x10000, 0x2, 0x0, 0x2, 0x9, 0x4, 0x6e, 0x2, 0x2, 0x5, 0x7, 0x52, 0x4, 0xffffffe1, 0x7, 0x1, 0x3, 0x3, 0x401, 0x81, 0x5]})
+ioctl$VIDIOC_S_FMT(r0, 0xc0d05605, &(0x7f0000000080)={0x1, @pix={0xffff, 0x80000000, 0x42474752, 0x2, 0xc000000, 0x1, 0x1, 0xc3, 0x1, 0x14, 0x0, 0x7}})
+r1 = syz_open_dev$vivid(&(0x7f0000000000)='/dev/video#\x00', 0x0, 0x2)
+ioctl$VIDIOC_G_AUDIO(r1, 0x80345621, &(0x7f0000000240))
+
+[   72.268152][T10417] ================================================================================
+[   72.271247][T10417] UBSAN: Undefined behaviour in drivers/media/v4l2-core/v4l2-common.c:173:37
+[   72.273981][T10417] signed integer overflow:
+[   72.275453][T10417] 65215 + 2147483468 cannot be represented in type 'int'
+[   72.277669][T10417] CPU: 0 PID: 10417 Comm: syz-executor.0 Not tainted 5.4.0+ #27
+[   72.280183][T10417] Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+[   72.283411][T10417] Call Trace:
+[   72.284466][T10417]  dump_stack+0xc6/0x11e
+[   72.285800][T10417]  ubsan_epilogue+0xe/0x40
+[   72.287247][T10417]  handle_overflow+0xdf/0xf0
+[   72.288657][T10417]  ? deref_stack_reg+0xa8/0xe0
+[   72.290130][T10417]  __v4l2_find_nearest_size+0x187/0x1e0
+[   72.291893][T10417]  vivid_try_fmt_vid_cap+0x965/0x2120
+[   72.293609][T10417]  ? trace_raw_output_mem_disconnect+0x250/0x2b0
+[   72.295645][T10417]  ? mark_held_locks+0x100/0x100
+[   72.297295][T10417]  ? kernel_text_address+0xcd/0xe0
+[   72.299037][T10417]  vivid_s_fmt_vid_cap+0x5d/0x2df0
+[   72.300664][T10417]  ? v4l_enable_media_source+0x4a/0xd0
+[   72.302415][T10417]  ? memset+0x1f/0x40
+[   72.303684][T10417]  ? vivid_update_format_cap+0x2050/0x2050
+[   72.305539][T10417]  fmt_sp2mp_func+0x90/0x410
+[   72.307000][T10417]  ? fmt_sp2mp+0x770/0x770
+[   72.308404][T10417]  ? __video_do_ioctl+0x42f/0xeb0
+[   72.310035][T10417]  ? __mutex_unlock_slowpath+0xdc/0x690
+[   72.311794][T10417]  ? security_file_ioctl+0x52/0xa0
+[   72.317002][T10417]  ? ksys_ioctl+0x3f/0x90
+[   72.318403][T10417]  vidioc_s_fmt_vid_cap+0xa3/0xf0
+[   72.320177][T10417]  v4l_s_fmt+0x32b/0xa60
+[   72.321552][T10417]  __video_do_ioctl+0x760/0xeb0
+[   72.323096][T10417]  ? v4l_s_fmt+0xa60/0xa60
+[   72.324502][T10417]  ? __might_fault+0x177/0x1b0
+[   72.326035][T10417]  video_usercopy+0x118/0xf80
+[   72.327541][T10417]  ? v4l_s_fmt+0xa60/0xa60
+[   72.328947][T10417]  ? v4l_enumstd+0x60/0x60
+[   72.330365][T10417]  ? __kasan_slab_free+0x11d/0x160
+[   72.332019][T10417]  ? tomoyo_execute_permission+0x4e0/0x4e0
+[   72.333849][T10417]  v4l2_ioctl+0x1c0/0x270
+[   72.335168][T10417]  ? v4l2_prio_init+0x20/0x20
+[   72.336594][T10417]  do_vfs_ioctl+0x19d/0x10d0
+[   72.338049][T10417]  ? ioctl_preallocate+0x1f0/0x1f0
+[   72.339671][T10417]  ? __fget+0x344/0x540
+[   72.340986][T10417]  ? do_dup2+0x4f0/0x4f0
+[   72.342368][T10417]  ? ktime_get_ts64+0x1e0/0x2f0
+[   72.343874][T10417]  ksys_ioctl+0x84/0x90
+[   72.345144][T10417]  __x64_sys_ioctl+0x6f/0xb0
+[   72.346663][T10417]  do_syscall_64+0x9d/0x5a0
+[   72.348134][T10417]  entry_SYSCALL_64_after_hwframe+0x49/0xbe
+[   72.350016][T10417] RIP: 0033:0x45de59
+[   72.351234][T10417] Code: 0d b4 fb ff c3 66 2e 0f 1f 84 00 00 00 00 00 66 90 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 db b3 fb ff c3 66 2e 0f 1f 84 00 00 00 00
+[   72.357505][T10417] RSP: 002b:00007fbd036dcc78 EFLAGS: 00000246 ORIG_RAX: 0000000000000010
+[   72.360178][T10417] RAX: ffffffffffffffda RBX: 000000000001cfc0 RCX: 000000000045de59
+[   72.362675][T10417] RDX: 0000000020000080 RSI: 00000000c0d05605 RDI: 0000000000000003
+[   72.365174][T10417] RBP: 000000000118bf60 R08: 0000000000000000 R09: 0000000000000000
+[   72.367707][T10417] R10: 0000000000000000 R11: 0000000000000246 R12: 000000000118bf2c
+[   72.370274][T10417] R13: 00007ffc60a4062f R14: 00007fbd036dd9c0 R15: 000000000118bf2c
+[   72.372794][T10417] ================================================================================
+[   73.018296][   T95] batman_adv: batadv0: Interface deactivated: batadv_slave_0
+[   73.031045][   T95] batman_adv: batadv0: Removing interface: batadv_slave_0
+[   73.034238][   T95] batman_adv: batadv0: Interface deactivated: batadv_slave_1
+[   73.036541][   T95] batman_adv: batadv0: Removing interface: batadv_slave_1
+[   73.041593][   T95] device bridge_slave_1 left promiscuous mode
+[   73.043623][   T95] bridge0: port 2(bridge_slave_1) entered disabled state
+[   73.046702][   T95] device bridge_slave_0 left promiscuous mode
+[   73.050045][   T95] bridge0: port 1(bridge_slave_0) entered disabled state
+[   73.054109][   T95] device veth1_macvtap left promiscuous mode
+[   73.056118][   T95] device veth0_macvtap left promiscuous mode
+[   73.059102][   T95] device veth1_vlan left promiscuous mode
+[   73.061052][   T95] device veth0_vlan left promiscuous mode
+[   73.289939][   T95] device hsr_slave_0 left promiscuous mode
+[   73.291897][   T95] device hsr_slave_1 left promiscuous mode
+[   73.302029][   T95] team0 (unregistering): Port device team_slave_1 removed
+[   73.305876][   T95] team0 (unregistering): Port device team_slave_0 removed
+[   73.311588][   T95] bond0 (unregistering): (slave bond_slave_1): Releasing backup interface
+[   73.315720][   T95] bond0 (unregistering): (slave bond_slave_0): Releasing backup interface
+[   73.331063][   T95] bond0 (unregistering): Released all slaves

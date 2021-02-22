@@ -1,0 +1,527 @@
+Extracting prog: 1m28.973087324s
+Minimizing prog: 39m40.53035733s
+Simplifying prog options: 0s
+Extracting C: 1m27.258399074s
+Simplifying C: 8m12.237670406s
+
+
+976 programs, 1 VMs, timeouts [15s 1m0s 6m0s]
+extracting reproducer from 976 programs
+single: executing 1 programs separately with timeout 15s
+testing program (duration=15s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r3, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r3, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r1, 0xc08c5332, &(0x7f00000002c0)={0x8, 0x0, 0x0, 'queue1\x00', 0x9})
+openat$sndseq(0xffffffffffffff9c, &(0x7f0000000100)='/dev/snd/seq\x00', 0x200)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+single: successfully extracted reproducer
+found reproducer with 16 syscalls
+minimizing guilty program
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r3, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r3, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r1, 0xc08c5332, &(0x7f00000002c0)={0x8, 0x0, 0x0, 'queue1\x00', 0x9})
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r3, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r3, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r3, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r3, 0x54a2)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r3, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+r3 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r3, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r2, 0xc08c5332, &(0x7f00000004c0)={0xee7c, 0x8, 0x0, 'queue1\x00', 0x4})
+ioctl$SNDRV_TIMER_IOCTL_SELECT(0xffffffffffffffff, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+openat$sndseq(0xffffffffffffff9c, &(0x7f00000000c0)='/dev/snd/seq\x00', 0x80)
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(r0, 0xc058534f, &(0x7f0000000380)={{0x1f, 0x8}, 0x1, 0x1, 0x0, {0xf7, 0x20}, 0x2b, 0x5})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(0xffffffffffffffff, 0x54a2)
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+r1 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r1, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r1, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(0xffffffffffffffff, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r1 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r1, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r1, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_CTL_IOCTL_ELEM_WRITE(0xffffffffffffffff, 0xc4c85513, &(0x7f0000000680)={{0x0, 0x0, 0x0, 0x0, 'syz0\x00'}, 0x0, [0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffd, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x3, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x8, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0x0, 0xfffffffffffffffc]})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(0xffffffffffffffff, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r0, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r1 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r1, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r1, 0x54a2)
+write$sndseq(0xffffffffffffffff, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, 0x0, 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, 0x0)
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, 0x0)
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, 0x0, 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, 0x0)
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, 0x0, 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, 0x0)
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x4d, &(0x7f0000000140)="1cb8242541ca3c51d74049c848709cf721bcb86a155d5e163d7e6d55244d4e098fb66d8c6bbda7f0056bc4b5a58efa95af4c1944863b826bcb6937d489fcdc9cf4aeaa250faf84a668ab24baeb"}}], 0xfffffe43)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, 0x0, 0x0)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x0, 0x0}}], 0x1c)
+
+program did not crash
+testing program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+detailed listing:
+executing program 0:
+r0 = openat$sndseq(0xffffffffffffff9c, &(0x7f00000001c0)='/dev/snd/seq\x00', 0x20582)
+ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE(r0, 0xc08c5332, &(0x7f0000000400)={0x0, 0x0, 0x0, 'queue0\x00'})
+ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS(0xffffffffffffffff, 0xc058534f, &(0x7f0000000240)={{}, 0x0, 0x0, 0x0, {}, 0x0, 0x1e})
+r1 = openat$sndseq(0xffffffffffffff9c, &(0x7f0000000000)='/dev/snd/seq\x00', 0x0)
+ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER(r1, 0x40605346, &(0x7f0000000040)={0x0, 0x0, {0x1, 0x0, 0x0, 0x3}, 0xfffffffc})
+r2 = openat$sndtimer(0xffffffffffffff9c, &(0x7f00000002c0)='/dev/snd/timer\x00', 0x0)
+ioctl$SNDRV_TIMER_IOCTL_SELECT(r2, 0x40345410, &(0x7f0000000040)={{0x0, 0x2}})
+ioctl$SNDRV_TIMER_IOCTL_CONTINUE(r2, 0x54a2)
+write$sndseq(r0, &(0x7f0000000200)=[{0x0, 0x0, 0x0, 0x0, @tick, {}, {}, @ext={0x0, &(0x7f0000000140)}}], 0x1c)
+
+program did not crash
+extracting C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:true Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+simplifying C reproducer
+testing compiled C program (duration=22.5s, {Threaded:true Collide:false Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:true RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:true Cgroups:true BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox:none Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:true NetDevices:true NetReset:false Cgroups:false BinfmtMisc:true CloseFDs:true KCSAN:false DevlinkPCI:false USB:false VhciInjection:true Wifi:true UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:true HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:true Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+testing compiled C program (duration=22.5s, {Threaded:false Collide:false Repeat:false RepeatTimes:0 Procs:1 Sandbox: Fault:false FaultCall:-1 FaultNth:0 Leak:false NetInjection:false NetDevices:false NetReset:false Cgroups:false BinfmtMisc:false CloseFDs:false KCSAN:false DevlinkPCI:false USB:false VhciInjection:false Wifi:false UseTmpDir:false HandleSegv:false Repro:true Trace:false}): openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_CREATE_QUEUE-ioctl$SNDRV_SEQ_IOCTL_QUERY_SUBS-openat$sndseq-ioctl$SNDRV_SEQ_IOCTL_SET_QUEUE_TIMER-openat$sndtimer-ioctl$SNDRV_TIMER_IOCTL_SELECT-ioctl$SNDRV_TIMER_IOCTL_CONTINUE-write$sndseq
+program crashed: UBSAN: undefined-behaviour in snd_timer_user_ccallback
+reproducing took 50m48.99953697s
+repro crashed as (corrupted=false):
+================================================================================
+UBSAN: Undefined behaviour in sound/core/timer.c:1338:23
+shift exponent 102 is too large for 32-bit type 'int'
+CPU: 0 PID: 9936 Comm: syz-executor744 Not tainted 5.4.0+ #27
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+Call Trace:
+ dump_stack+0xc6/0x11e
+ ubsan_epilogue+0xe/0x40
+ __ubsan_handle_shift_out_of_bounds+0x13e/0x180
+ snd_timer_user_ccallback+0x1ef/0x300
+ snd_timer_notify1+0x236/0x400
+ snd_timer_start1+0x47a/0x740
+ snd_timer_start+0x55/0x90
+ snd_seq_timer_start+0x19b/0x2a0
+ snd_seq_control_queue+0x2b9/0x620
+ snd_seq_deliver_single_event.constprop.9+0x2e1/0x7f0
+ snd_seq_deliver_event+0x1c6/0x910
+ snd_seq_dispatch_event+0x103/0x560
+ snd_seq_check_queue.part.1+0x12e/0x350
+ snd_seq_enqueue_event+0x2dd/0x410
+ snd_seq_client_enqueue_event.constprop.8+0x1e0/0x3c0
+ snd_seq_write+0x339/0x600
+ __vfs_write+0x7a/0x100
+ vfs_write+0x1c3/0x500
+ ksys_write+0xc8/0x210
+ do_syscall_64+0x9d/0x5a0
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x440ce9
+Code: 18 89 d0 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 7b 13 fc ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007ffd7bfb3c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00000000004002c8 RCX: 0000000000440ce9
+RDX: 00000000fffffe43 RSI: 0000000020000200 RDI: 0000000000000003
+RBP: 00000000006cb018 R08: 00000000004002c8 R09: 00000000004002c8
+R10: 00000000004002c8 R11: 0000000000000246 R12: 00000000004024f0
+R13: 0000000000402580 R14: 0000000000000000 R15: 0000000000000000
+================================================================================
+
+final repro crashed as (corrupted=false):
+================================================================================
+UBSAN: Undefined behaviour in sound/core/timer.c:1338:23
+shift exponent 102 is too large for 32-bit type 'int'
+CPU: 0 PID: 9936 Comm: syz-executor744 Not tainted 5.4.0+ #27
+Hardware name: QEMU Standard PC (i440FX + PIIX, 1996), BIOS Ubuntu-1.8.2-1ubuntu1 04/01/2014
+Call Trace:
+ dump_stack+0xc6/0x11e
+ ubsan_epilogue+0xe/0x40
+ __ubsan_handle_shift_out_of_bounds+0x13e/0x180
+ snd_timer_user_ccallback+0x1ef/0x300
+ snd_timer_notify1+0x236/0x400
+ snd_timer_start1+0x47a/0x740
+ snd_timer_start+0x55/0x90
+ snd_seq_timer_start+0x19b/0x2a0
+ snd_seq_control_queue+0x2b9/0x620
+ snd_seq_deliver_single_event.constprop.9+0x2e1/0x7f0
+ snd_seq_deliver_event+0x1c6/0x910
+ snd_seq_dispatch_event+0x103/0x560
+ snd_seq_check_queue.part.1+0x12e/0x350
+ snd_seq_enqueue_event+0x2dd/0x410
+ snd_seq_client_enqueue_event.constprop.8+0x1e0/0x3c0
+ snd_seq_write+0x339/0x600
+ __vfs_write+0x7a/0x100
+ vfs_write+0x1c3/0x500
+ ksys_write+0xc8/0x210
+ do_syscall_64+0x9d/0x5a0
+ entry_SYSCALL_64_after_hwframe+0x49/0xbe
+RIP: 0033:0x440ce9
+Code: 18 89 d0 c3 66 2e 0f 1f 84 00 00 00 00 00 0f 1f 00 48 89 f8 48 89 f7 48 89 d6 48 89 ca 4d 89 c2 4d 89 c8 4c 8b 4c 24 08 0f 05 <48> 3d 01 f0 ff ff 0f 83 7b 13 fc ff c3 66 2e 0f 1f 84 00 00 00 00
+RSP: 002b:00007ffd7bfb3c48 EFLAGS: 00000246 ORIG_RAX: 0000000000000001
+RAX: ffffffffffffffda RBX: 00000000004002c8 RCX: 0000000000440ce9
+RDX: 00000000fffffe43 RSI: 0000000020000200 RDI: 0000000000000003
+RBP: 00000000006cb018 R08: 00000000004002c8 R09: 00000000004002c8
+R10: 00000000004002c8 R11: 0000000000000246 R12: 00000000004024f0
+R13: 0000000000402580 R14: 0000000000000000 R15: 0000000000000000
+================================================================================
+

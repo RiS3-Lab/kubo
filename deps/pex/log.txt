@@ -1,0 +1,25 @@
+[36m--- PROCESS FUNCTIONS ---[0m
+Load supplimental files...
+Pre-processing...
+STOP WATCH[0]: 252.356000 ms
+Found 0 syscalls
+Identify Kernel Modules Interface
+STOP WATCH[0]: 269.434000 ms
+dynamic KMI
+#dyn kmi resolved:1046
+STOP WATCH[0]: 298.057000 ms
+Populate indirect callsite using kernel module interface
+[48;5;255m[38;5;160m------ KMI STATISTICS ------[0m
+# of indirect call sites: 9586
+# resolved by KMI:9336 97%
+#     - KMI:6081 63%
+#     - DKMI:1578 16%
+# (total target) of callee:91369
+# undefined-found-m : 845 8%
+# undefined-udf-m : 832 8%
+# fpara(KMI can not handle, try SVF?): 25 0%
+# global fptr(try SVF?): 6 0%
+# cast fptr(try SVF?): 0 0%
+# call use container_of(), high level type info stripped: 212 2%
+# unknown pattern:7 0%
+STOP WATCH[0]: 6938.291000 ms

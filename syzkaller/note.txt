@@ -1,0 +1,11 @@
+- On the current stable vm where KUBO was running, syzkaller provided bunch of modified compilers, it seems only `clang 8.0.0 (trunk 343298) ` is usable, clang 10 is not usable(GLIBC_2.27 is missing).
+	- Nope, clang 8.0.0 is not usable too(asm-goto is not supported), use gcc 8.0.1 instead
+
+- To enable the bug detectors, I use the default linux configure file provided here:
+
+https://github.com/google/syzkaller/blob/master/docs/linux/kernel_configs.md
+https://github.com/google/syzkaller/blob/master/dashboard/config/linux/upstream-apparmor-kasan.config
+
+- For UBSan specifically, according to https://www.kernel.org/doc/html/latest/dev-tools/ubsan.html `CONFIG_UBSAN` and `CONFIG_UBSAN_SANITIZE_ALL` are set
+ 
+- In the syzkaller configuration file, not sure that "linux/x86" and "linux/x86_64" are not supported, I used "linux/arm64" instead.
