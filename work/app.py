@@ -1411,6 +1411,7 @@ class App(object, metaclass=ABCMeta):
         outs = []
         reds = []
         srcs = []
+        inputs = []
 
         for r in runs:
             if r[0] == "/":
@@ -1447,8 +1448,22 @@ class App(object, metaclass=ABCMeta):
             outs.append(out)
             reds.append(red)
             srcs.append(r)
+            inputs.append(inf)
 
         with cd(pbcf):
+            pool = Pool(HALF_NCPU, init_pool_worker)
+
+            print("making sure no asm redefinition problem will happen...")
+            try:
+                work = pool.map(pre_trans_process,inputs)
+            except KeyboardInterrupt:
+                pool.terminate()
+                pool.join()
+                LOG_WRN("Interrupted")
+                return False
+            print("done")
+
+            print("optimizing the bc files...")
             pool = Pool(HALF_NCPU, init_pool_worker)
             try:
                 work = pool.map(trans_worker, cmds)
@@ -1458,6 +1473,7 @@ class App(object, metaclass=ABCMeta):
 
                 LOG_WRN("Interrupted")
                 return False
+            print("done")
 
         with open(self.path_log_trans, "w") as f:
             for i, r in enumerate(runs):
