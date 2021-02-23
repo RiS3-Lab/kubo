@@ -40,7 +40,9 @@ def build(clean = True, debug = None):
                     "-DDEPS_Z3_DIR=%s " % DEPS_Z3 + \
                     "-DDEPS_UTIL_DIR=%s " % DEPS_UTIL + \
                     "-DKSYM_DEBUG_ITEM=%s " % ditem + \
+                    "-DCMAKE_EXPORT_COMPILE_COMMANDS=true "+ \
                     psrc)
+            print(cmd)
             if shell(cmd) == 0:
                 LOG_INF("Config done")
             else:

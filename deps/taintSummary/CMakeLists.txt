@@ -11,8 +11,7 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 set(CMAKE_CXX_FLAGS "-Wno-unused-variable ")
-set(CMAKE_CXX_FLAGS_DEBUG "-g")
-set(CMAKE_CXX_FLAGS_RELEASE "-O1")
+set(CMAKE_CXX_FLAGS_RELEASE "-O2")
 
 add_subdirectory(Utils) # For utilities
 
