@@ -387,7 +387,7 @@ namespace DRCHECKER {
         }
         //for the call graph that has been parsed
         // transfer them into real function and instructions within this module
-        bool renderCallGraph(Module *m){
+        void renderCallGraph(Module *m){
             std::map<int,Function*> func_id_map;
             int func_id = 0;
             //render direct call
