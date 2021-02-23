@@ -37,7 +37,7 @@ Kernel
 
 2. generate bc with debug symbol so that we can map reported bugs to source code automatically when generating the bug reports
 
-- Build llvm bc                  : python main.py gen_dbg_irgen
+- Build llvm bc                  : python main.py gen_dbg_ir
 - Group into modules             : python main.py gen_dbg_group
 - Optimize and LTO               : python main.py gen_dbg_trans
 
