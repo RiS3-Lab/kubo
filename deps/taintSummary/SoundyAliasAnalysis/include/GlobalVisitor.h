@@ -75,6 +75,9 @@ namespace DRCHECKER {
             this->inside_loop = false;
 
             summaries = new FunctionTaintSummary(toAnalyze,func_id);
+            for(auto each_callback = allCallbacks.begin(); each_callback != allCallbacks.end() ; each_callback++){
+                (*each_callback)->stop = &stop;
+            }
 #ifdef FAST_HEURISTIC
             this->numTimeAnalyzed.clear();
 #endif

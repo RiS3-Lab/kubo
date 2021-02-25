@@ -242,6 +242,7 @@ namespace DRCHECKER {
 
         }
 
+        bool* stop;
         void visit(BasicBlock *BB) {
 
         }

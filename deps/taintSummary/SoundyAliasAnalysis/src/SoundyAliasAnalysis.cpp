@@ -789,7 +789,7 @@ namespace DRCHECKER {
             std::set<int> tainted_paras;
             
         }
-        int whole_kernel_taint_refinement(std::map<Function*,FunctionTaintSummary*>& total_func_summary,std::vector<Function*>& unfinished_funcs){
+        void whole_kernel_taint_refinement(std::map<Function*,FunctionTaintSummary*>& total_func_summary,std::vector<Function*>& unfinished_funcs){
             std::map<Function*,std::set<Function*> > mergedCalleeMap;
             for(auto calleeMapIt = CalleesMap.begin();calleeMapIt != CalleesMap.end(); calleeMapIt++){
                 CallInst* ci = calleeMapIt->first;
@@ -903,14 +903,16 @@ namespace DRCHECKER {
 
             std::map<Function*,FunctionTaintSummary*> total_func_summary;
             std::vector<Function*> unfinished_funcs;
+            int total_func_num = 0;
+            for(auto funcIt = m.begin(); funcIt != m.end();total_func_num++, funcIt++){}
             int func_id = 0;
             for(auto funcIt = m.begin(); funcIt != m.end();func_id++, funcIt++){
                 std::string checkFunctionName = (*funcIt).getName().str();
                 Function * curFunc = &*funcIt;
                 if(curFunc->isDeclaration())
                     continue;
-                errs()<<"start analyzing "<<curFunc->getName().str()<<"\n";
-                std::string tarFunc("pcie_aspm_init_link_state");
+                //errs()<<"start analyzing "<<curFunc->getName().str()<<"\n";
+                //std::string tarFunc("des3_ede_decrypt");
                 //if(checkFunctionName != tarFunc)
                 //    continue;
                 //std::string functionType = eachEntryFunc->second;
@@ -935,7 +937,7 @@ namespace DRCHECKER {
                 GlobalVisitor *vis = new GlobalVisitor(currState,curFunc, func_id,callSites, traversalOrder, allCallBacks);
 
                 std::future<void> fut = std::async(std::launch::async,&GlobalVisitor::analyze,vis);
-                std::chrono::system_clock::time_point one_hundred_seconds = std::chrono::system_clock::now() + std::chrono::seconds(80);
+                std::chrono::system_clock::time_point one_hundred_seconds = std::chrono::system_clock::now() + std::chrono::seconds(100);
                 if(fut.wait_until(one_hundred_seconds) == std::future_status::ready){
                     //vis->summaries->dump(fw);
                     errs()<<curFunc->getName().str()<<" finished\n";
@@ -947,8 +949,7 @@ namespace DRCHECKER {
                     vis->stop = true;
                     fut.get();
                 }
-                //vis->analyze();
-
+                dbgs()<<func_id<<" out of "<< total_func_num<<'\n';
                 //clean up
                 delete(vis);
                 delete((KernelFunctionChecker*)targetChecker);

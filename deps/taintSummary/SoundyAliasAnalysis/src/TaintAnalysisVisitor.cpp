@@ -323,6 +323,9 @@ namespace DRCHECKER {
 
             bool add_taint;
             for(auto currTaintFlag:*srcTaintInfo) {
+                if(*stop){
+                    return;
+                }
                 add_taint = true;
                 Instruction *currTaintInstr = dyn_cast<Instruction>(&I);
                 if(currTaintInstr != nullptr) {
@@ -370,6 +373,9 @@ namespace DRCHECKER {
                 // this set stores the <fieldid, targetobject> of all the objects to which the dstPointer points to.
                 std::set<std::pair<long, AliasObject *>> targetObjects;
                 for (PointerPointsTo *currPointsToObj:*dstPointsTo) {
+                    if(*stop){
+                        return;
+                    }
                     long target_field = currPointsToObj->dstfieldId;
                     AliasObject *dstObj = currPointsToObj->targetObject;
                     auto to_check = std::make_pair(target_field, dstObj);

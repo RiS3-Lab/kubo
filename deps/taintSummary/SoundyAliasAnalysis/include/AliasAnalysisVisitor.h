@@ -45,6 +45,7 @@ namespace DRCHECKER {
 
         bool inside_loop;
 
+
         AliasAnalysisVisitor(GlobalState &targetState,
         Function *toAnalyze,
                 std::vector<std::pair<Instruction *,Function*> > *srcCallSites): currState(targetState) {
