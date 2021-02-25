@@ -1355,7 +1355,7 @@ class App(object, metaclass=ABCMeta):
                         pass
                     else:
                         srcs.append(inputfile)
-                        cmd = PoolWork(True,redfile,"%s -load %s -dr_checker -callgraphFile=%s -disable-output -outputFile=%s %s" %(LLVM_BIN_OPT,PATH_TAINT_SO,cgfile,taintfile,inputfile))
+                        cmd = PoolWork(True,redfile,"%s -load %s -dr_checker -callgraphFile=%s -disable-output -outputFile=%s %s" %(LLVM_PRE_BIN_OPT,PATH_TAINT_SO,cgfile,taintfile,inputfile))
                         cmds.append(cmd)
         pool = Pool(OPTS_NCPU, init_pool_worker)
         try:
