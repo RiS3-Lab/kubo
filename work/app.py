@@ -1234,7 +1234,7 @@ class App(object, metaclass=ABCMeta):
                     cgfile = resolve(ptra,root,"cg_pex.txt")
                     
                     srcs.append(inputfile)
-                    cmd = PoolWork(False,cgfile,"%s %s %s %s %s" %(PATH_PEX_EXE,LLVM_BIN_OPT,PATH_PEX_SO,inputfile,cgfile))
+                    cmd = PoolWork(False,cgfile,"%s %s %s %s %s" %(PATH_PEX_EXE,LLVM_PRE_BIN_OPT,PATH_PEX_SO,inputfile,cgfile))
                     cmds.append(cmd)
         pool = Pool(HALF_NCPU, init_pool_worker)
         try:

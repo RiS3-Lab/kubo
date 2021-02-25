@@ -31,7 +31,7 @@ Kernel
 - Build llvm bc                  : python main.py irgen
 - Group into modules             : python main.py group
 - Optimize and LTO               : python main.py trans
-- Generate call graph            : python main.py gencg
+- Generate call graph            : python main.py gen_cg
 - syscall/ioctl entry analysis   : python main.py entry_ana
 - data summary generation        : python main.py taint_ana
 
