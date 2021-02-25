@@ -76,8 +76,6 @@ def main():
     sub_taint = subs.add_parser("taint_ana")
     
     sub_run = subs.add_parser("run")
-    sub_run.add_argument("-i", "--input", action="append", default=None)
-    sub_run.add_argument("-s", "--show", action="store_false")
     
     sub_pre_trans_process = subs.add_parser("pre_trans_process")
     sub_pre_trans_process.add_argument("-i","--input",required=True,help="the bc file that has invalid symbol redefinition problem")
@@ -126,7 +124,7 @@ def main():
     elif args.cmd == "taint_ana":
         APP.taint_ana()
     elif args.cmd == "run":
-        APP.run(args.input, args.show)
+        APP.run()
     elif args.cmd == "stat":
         APP.stat()
     elif args.cmd == "pre_trans_process":
