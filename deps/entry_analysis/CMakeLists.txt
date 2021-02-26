@@ -1,9 +1,9 @@
 cmake_minimum_required(VERSION 3.4)
 set(LLVM_DIR "${LLVM_PREBUILT_PATH}")
-set(CMAKE_C_COMPILER "${LLVM_DIR}/bin/clang")
-set(CMAKE_CXX_COMPILER "${LLVM_DIR}/bin/clang++")
-set(LLVM_INCLUDE "${LLVM_DIR}include")
-set(LLVM_LIB "${LLVM_DIR}lib")
+#set(CMAKE_C_COMPILER "${LLVM_DIR}/bin/clang")
+#set(CMAKE_CXX_COMPILER "${LLVM_DIR}/bin/clang++")
+set(LLVM_INCLUDE "${LLVM_DIR}/include")
+set(LLVM_LIB "${LLVM_DIR}/lib")
 # set the project name
 project(entry_analysis)
 add_executable(entry_analysis main.cpp)
