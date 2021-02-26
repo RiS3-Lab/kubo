@@ -680,6 +680,7 @@ void ModuleOracle::parseTaintSummary(string taint_path, bool partial){
     string callinstStart("CallInst:");
     string callParaIdx("callee idx:");
     string sourceStarter("sources:");
+    string timeOutLine("did not finish");
 
     string eachLine;
     FunctionTaintSummary* currFuncTaintSum;
@@ -748,7 +749,7 @@ void ModuleOracle::parseTaintSummary(string taint_path, bool partial){
             // the current line is not processed yet
             continue;
         }
-        else if(eachLine == ""){
+        else if(eachLine == "" || eachLine.find(timeOutLine) != string::npos){
 
         }
         else{

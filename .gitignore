@@ -12,8 +12,11 @@ pass/GRTAGS
 
 *.xlsx
 sync_to_server*
-
+*.tar.xz
 
 .idea/
 .vscode/
 code/
+build/
+cmake-build-release/
+cmake-build-debug/
