@@ -9,10 +9,8 @@ function build
 #-DCMAKE_CXX_COMPILER= 
     mkdir build
     pushd build
-    cmake ../ \
-        -DLLVM_DIR=/opt/toolchain/llvm-git \
-        -DLLVM_ROOT=/opt/toolchain/llvm-git \
-        -DCMAKE_BUILD_TYPE=Debug \
+    LLVM_PATH="$PWD/../../../llvm/bins-9.0/"
+    cmake -DLLVM_DIR=$LLVM_PATH -DLLVM_ROOT=$LLVM_PATH -DCMAKE_PREFIX_PATH=$LLVM_PATH -DCMAKE_BUILD_TYPE=Debug ..
 
     make -j1
     popd
