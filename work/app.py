@@ -1526,8 +1526,13 @@ class App(object, metaclass=ABCMeta):
                             %(LLVM_PRE_BIN_OPT,PASS_KSYM,cgfile,outfile,taintfile,__userfile,entryfile,inputfile,errfile)
                     cmds.append(cmd)
 
-        p = Pool(OPTS_NCPU,init_pool_worker)
-        p.map(executeone,cmds)
+        pool = Pool(OPTS_NCPU,init_pool_worker)
+        try:
+            work = pool.map(executeone, cmds)
+        except KeyboardInterrupt:
+            pool.terminate()
+            pool.join()
+
         return True
 
     def __dump_irgen(self, fp):
@@ -1697,8 +1702,12 @@ class App(object, metaclass=ABCMeta):
             cmd = "{} {} {} {} {} {} {}".format(PATH_PRINTFUNC,normal_file_name,bug_file,func_name,indexes[0],indexes[1],indexes[2])
             cmds.append(cmd)
 
-        p = Pool(8,init_pool_worker)
-        p.map(executeone,cmds)
+        pool = Pool(HALF_NCPU,init_pool_worker)
+        try:
+            work = pool.map(executeone, cmds)
+        except KeyboardInterrupt:
+            pool.terminate()
+            pool.join()
 
 
         count = 0
