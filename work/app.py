@@ -1526,7 +1526,7 @@ class App(object, metaclass=ABCMeta):
                             %(LLVM_PRE_BIN_OPT,PASS_KSYM,cgfile,outfile,taintfile,__userfile,entryfile,inputfile,errfile)
                     cmds.append(cmd)
 
-        p = Pool(OPTS_NCPU,init_pool_worker)
+        p = Pool(HALF_NCPU,init_pool_worker)
         p.map(executeone,cmds)
         return True
 
@@ -1703,7 +1703,7 @@ class App(object, metaclass=ABCMeta):
 
         count = 0
         reported_bugs = []
-        hash_funcs = ["__hash_32_generic","__hash_64_generic"]
+        hash_funcs = ["__hash_32_generic","__hash_64_generic","pixel_to_pat"]
         for bug_idx in range(len(os.listdir(bug_dir))):
             cur_bug_name = ''
             for each_bug_name in os.listdir(bug_dir):
