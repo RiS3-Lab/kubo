@@ -1526,7 +1526,7 @@ class App(object, metaclass=ABCMeta):
                             %(LLVM_PRE_BIN_OPT,PASS_KSYM,cgfile,outfile,taintfile,__userfile,entryfile,inputfile,errfile)
                     cmds.append(cmd)
 
-        p = Pool(HALF_NCPU,init_pool_worker)
+        p = Pool(OPTS_NCPU,init_pool_worker)
         p.map(executeone,cmds)
         return True
 
