@@ -1526,7 +1526,7 @@ class App(object, metaclass=ABCMeta):
                             %(LLVM_PRE_BIN_OPT,PASS_KSYM,cgfile,outfile,taintfile,__userfile,entryfile,inputfile,errfile)
                     cmds.append(cmd)
 
-        pool = Pool(OPTS_NCPU,init_pool_worker)
+        pool = Pool(OPTS_NCPU)
         try:
             work = pool.map(executeone, cmds)
         except KeyboardInterrupt:
