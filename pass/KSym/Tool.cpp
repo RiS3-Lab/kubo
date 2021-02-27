@@ -194,7 +194,7 @@ bool KSym::runOnModule(Module &m) {
         if(std::find(alreadyProcess.begin(),alreadyProcess.end(),funcName) != alreadyProcess.end()){
             continue;
         }*/
-        string tarFunc("ch_gstatus");
+        string tarFunc("vfio_iommu_type1_ioctl");
         //if(funcName != tarFunc ) {
         //    continue;
         //}
@@ -297,8 +297,9 @@ bool KSym::runOnModule(Module &m) {
                         errs()<<to_write;
                         SAHandle* handleInter = new SAHandle(*cur_caller,&(calleeF->getFunc()),\
                         mo,fw,user_paras,eachCallerFunc->second,&calleeF->interPTraces,taintSum,hop_count);
-                        handleInter->runInter();
+                        //
                         /*
+                        handleInter->runInter();
                         vector<string> new_processed_funcs(processed_funcs.begin(),processed_funcs.end());
                         new_processed_funcs.push_back(caller_name);
                         calleeList_next.push_back(make_pair(handleInter,new_processed_funcs));
