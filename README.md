@@ -63,4 +63,4 @@ Shout out to their amazong contributions that made this possible.
 Q & A
 ----
 Should you have any question, feel free to raise an issue in this repo or directly contact the author at liu.changm@northeastern.edu.
-It's intended that this project to be actively maintained for a period of time(mainly for readability improvement).
+It's intended that this project to be actively maintained for a period of time, mainly for readability improvement and performance fine-tuning.
