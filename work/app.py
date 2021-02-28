@@ -155,13 +155,21 @@ def pre_trans_process(input):
 
 def executeone(s):
     label = s.split(">")[-1].strip()
-    print(label," start")
+    print(label,"start")
     if(call(s,shell=True) == 0):
-        print(label,colored(" done","green"))
+        print(label,colored("done","green"))
         return True
     else:
-        print(s)
-        print(label,colored(" failed","red"))
+        print(label,colored("failed","red"))
+        return False
+
+def executeone_less(s):
+    label = s.split(">")[-1].strip()
+    if(call(s,shell=True) == 0):
+        print(colored("done","green"))
+        return True
+    else:
+        print(label,colored("failed","red"))
         return False
 
 def analyze_worker(pn):
@@ -1702,9 +1710,9 @@ class App(object, metaclass=ABCMeta):
             cmd = "{} {} {} {} {} {} {}".format(PATH_PRINTFUNC,normal_file_name,bug_file,func_name,indexes[0],indexes[1],indexes[2])
             cmds.append(cmd)
 
-        pool = Pool(HALF_NCPU,init_pool_worker)
+        pool = Pool(HALF_NCPU)
         try:
-            work = pool.map(executeone, cmds)
+            work = pool.map(executeone_less, cmds)
         except KeyboardInterrupt:
             pool.terminate()
             pool.join()
