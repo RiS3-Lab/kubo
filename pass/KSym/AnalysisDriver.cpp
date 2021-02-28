@@ -493,7 +493,7 @@ Instruction* SAHandle::seed2sanitizedVar(CallInst *seed,enum UB_types UB_type) {
             return nullptr;
         }
         if(sanitized_stuct->getNumUses() == 1){
-            // this only one use can only be the "insertValue" inst which is pointless
+            // this only one use can only be the "extractInst" inst which is pointless
             errs()<<"Err: sanitized value not used\n";
             return nullptr;
         }
@@ -501,6 +501,7 @@ Instruction* SAHandle::seed2sanitizedVar(CallInst *seed,enum UB_types UB_type) {
             auto u_it = sanitized_stuct->user_begin();
             for(; u_it != sanitized_stuct->user_end(); u_it++){
                 Value * use_of_struct = *u_it;
+                //errs()<<*use_of_struct<<'\n';
                 ExtractValueInst * extract_inst = dyn_cast<ExtractValueInst>(use_of_struct);
                 if(extract_inst != nullptr && use_of_struct != conVar){
                     ub_value = extract_inst;
@@ -508,7 +509,10 @@ Instruction* SAHandle::seed2sanitizedVar(CallInst *seed,enum UB_types UB_type) {
                 }
             }
         }
-        assert(ub_value != nullptr);
+        if(ub_value == nullptr){
+            // the sanitized value is never extracted from the struct
+            return nullptr;
+        }
         return ub_value;
     }
     else{
@@ -543,6 +547,7 @@ bool SAHandle::stillWrong(Instruction * sanitized_var,SEGraph*seg){
 int SAHandle::postBugAnalysis(TraceStatus* traceStatus,blist & old_blks ,Slice& old_slice){
     enum UB_types ub_type = seed2UBType(traceStatus->seed);
     Instruction * sanitized_value = seed2sanitizedVar(traceStatus->seed,ub_type);
+
     if(ub_type != ub_notype){
         // this is a UB that needs to be post-bug analyzed
         if(sanitized_value == nullptr){
@@ -857,7 +862,7 @@ void SAHandle::run() {
     // also collect fetches, for later reporting purpose.
     collectSeed();
     collectFetch();
-
+    //errs()<<func<<'\n';
     while(seeds.size() > MAX_NUM_SEEDS_PER_FUNC){
         seeds.erase(seeds.begin());
     }
