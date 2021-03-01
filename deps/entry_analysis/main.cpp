@@ -43,7 +43,7 @@ typedef struct {
     std::string method_lab;
 } INT_STS;
 
-static const char* _builtin_syscall_prefix [] ={
+static const vector<string> _builtin_syscall_prefix ={
         "compat_SyS_",
         "compat_sys_",
         "__x64_sys",
@@ -494,8 +494,8 @@ int main(int argc, char *argv[]) {
     for(Module::iterator F_it = m->begin(); F_it != m->end() ; F_it++){
         StringRef funcName = (*F_it).getName();
         bool foundSyscall = false;
-        for (int i=0;i<8;i++){
-            if (funcName.startswith(_builtin_syscall_prefix[i])){
+        for(auto each_syscall_prefix = _builtin_syscall_prefix.begin(); each_syscall_prefix != _builtin_syscall_prefix.end(); each_syscall_prefix++){
+            if (funcName.startswith(*(each_syscall_prefix))){
                 foundSyscall = true;
                 break;
             }
