@@ -1,2 +1,6 @@
 *.pyc
 *.bc
+
+bugs_archive/
+bugs/
+*result*
