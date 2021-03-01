@@ -29,7 +29,9 @@ BUILDER = CMDBuilder(
             "nostdinc": CMDChange(None, None),
             "nostdlib": CMDChange(None, None),
             }),
-        fset = CMDChangeList(True, {}),
+        fset = CMDChangeList(True, {
+            "short-wchar": CMDChange(None,None),
+        }),
         pars = CMDChangeList(True, {}),
         )
 
