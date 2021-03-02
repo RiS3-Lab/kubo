@@ -90,7 +90,7 @@ class CMDChange(object):
     def change(self, flag):
         # mod is None   ==> keep if in flags, do nothing otherwise
         # mod is True   ==> add if not in flags
-        # mos is False  ==> drop if in flags
+        # mod is False  ==> drop if in flags
         if self.mod is None or self.mod:
             if self.val is None:
                 return flag
