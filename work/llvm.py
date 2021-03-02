@@ -26,7 +26,7 @@ def build(clean = True, debug = None):
     with cd(pobj):
         if clean:
             if debug is not None:
-                btype = "Profile"
+                btype = "Debug"
                 ditem = debug.upper()
             else:
                 btype = "Release"
