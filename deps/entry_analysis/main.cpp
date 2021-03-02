@@ -52,8 +52,8 @@ static const vector<string> _builtin_syscall_prefix ={
         "__ia32_compat_sys_"
 };
 INT_STS kernel_sts[] {
-        {"struct.drm_driver",-1,IOCTL_HDR},
-        {"struct.drm_ioctl_desc",-1,IOCTL_HDR},
+        //{"struct.drm_driver",-1,IOCTL_HDR},
+        //{"struct.drm_ioctl_desc",-1,IOCTL_HDR},
         {"struct.watchdog_ops", 9, IOCTL_HDR},
         // TODO:needs to be refined
         //{"struct.bin_attribute", 3, READ_HDR},
