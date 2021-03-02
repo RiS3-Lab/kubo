@@ -32,7 +32,7 @@ def build(clean = True, debug = None):
                 btype = "Release"
                 ditem = "NONE"
             
-            cmd = ("CC=gcc CXX=g++ cmake " + \
+            cmd = ("CC=gcc-5 CXX=g++-5 cmake " + \
                     "-G 'Unix Makefiles' " + \
                     "-DCMAKE_BUILD_TYPE=%s " % btype + \
                     "-DCMAKE_PREFIX_PATH=%s " % LLVM_PRE_PREP + \
