@@ -7,7 +7,7 @@ Requirement:
 
 - Ubuntu 16.04, 18.04, 20.04
 - Python3
-    - 3rd party packages:networkx, matploitlib, argparse, termcolor,ipython
+    - 3rd party packages:networkx, matplotlib, argparse, termcolor,ipython
 - cmake
 
 Init
@@ -58,7 +58,7 @@ specifically
 - For slicing and symbolic execution: https://github.com/sslab-gatech/deadline/
 - For taint analysis: https://github.com/ucsb-seclab/dr_checker
 
-Shout out to their amazong contributions that made this possible.
+Shout out to their amazing contributions that made this possible.
 
 Q & A
 ----
