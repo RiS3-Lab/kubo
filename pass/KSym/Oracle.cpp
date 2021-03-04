@@ -463,7 +463,13 @@ tuple<GlobalVariable* ,bool ,int64_t> parseSysctlVariableInfo(Value* kernel_vari
             }else{
                 return make_tuple(nullptr,false,0);
             }
-        }else{
+        }
+        else if(isa<IntToPtrInst >(con_expr_inst)){
+            // cast a constant int to a pointer
+            // not useful for sysctl
+        }
+        else{
+            errs()<<*con_expr_inst<<'\n';
             llvm_unreachable("unhandled handling of kernel sysctl variable.");
         }
     }
