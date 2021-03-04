@@ -119,7 +119,7 @@ static void  parseCheckPoint(string outFileName,vector<string>& ret){
     return;
 }
 
-int MAX_NUM_TRACES_PER_SEED = 512;
+int MAX_NUM_TRACES_PER_SEED = 384;
 int MAX_NUM_SEEDS_PER_FUNC = 50;
 int MAX_NUM_CALLSITES_PER_CALLER=10;
 int MAX_NUM_CALLERS=10;
@@ -306,7 +306,7 @@ bool KSym::runOnModule(Module &m) {
                         handleInter->mergeResult(summarized);
                         */
                         std::future<void> fut = std::async(std::launch::async,&SAHandle::runInter,handleInter);
-                        std::chrono::system_clock::time_point timed_out_limit = std::chrono::system_clock::now() + std::chrono::seconds(200);
+                        std::chrono::system_clock::time_point timed_out_limit = std::chrono::system_clock::now() + std::chrono::seconds(500);
                         if(fut.wait_until(timed_out_limit) == std::future_status::ready){
                             vector<string> new_processed_funcs(processed_funcs.begin(),processed_funcs.end());
                             new_processed_funcs.push_back(caller_name);
