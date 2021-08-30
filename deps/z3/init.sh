@@ -1,9 +1,8 @@
 #!/bin/bash
 
 # paths
-LLVM=/mnt/c/Users/lcm/Documents/llvm/bins-9.0/bin
-echo $ROOT
 ROOT=$(pwd)
+LLVM=$ROOT/../../llvm/bins-9.0/bin
 SRCS=$ROOT/srcs
 BINS=$ROOT/bins
 
