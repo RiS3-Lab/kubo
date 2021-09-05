@@ -93,7 +93,7 @@ bool ModuleOracle::parseUserInputArg(string& path){
             
             //find func
             auto funcIt = func_str_map.find(funcName);
-            if(funcIt != func_str_map.end()){
+            if(funcIt == func_str_map.end()){
                 continue;
             }
             Function* func = funcIt->second;
