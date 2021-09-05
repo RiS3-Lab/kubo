@@ -116,6 +116,8 @@ string UB_root::stringKind(formalize_kind kind) {
             return "unknown";
         case F_Calculated:
             return "calculated";
+        case F_Cmped:
+            return "cmped";
     }
 }
 
