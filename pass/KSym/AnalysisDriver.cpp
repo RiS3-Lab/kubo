@@ -548,7 +548,8 @@ int SAHandle::postBugAnalysis(TraceStatus* traceStatus,blist & old_blks ,Slice& 
     enum UB_types ub_type = seed2UBType(traceStatus->seed);
     Instruction * sanitized_value = seed2sanitizedVar(traceStatus->seed,ub_type);
 
-    if(ub_type != ub_notype){
+    vector<enum UB_types> unimmediateUBTypes {uadd, usub, umul, sadd, ssub, smul, negate_overflow, shift_out_of_bound};
+    if(find(unimmediateUBTypes.begin(),unimmediateUBTypes.end(),ub_type) != unimmediateUBTypes.end()) {
         // this is a UB that needs to be post-bug analyzed
         if(sanitized_value == nullptr){
             // this UB needs to be post-bug analyzed, but its sanitized value cannot be found
